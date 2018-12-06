@@ -19,8 +19,7 @@ public class FoodItemService {
     }
 
     public List<FoodItemModel> listAll() {
-
-        return new ArrayList<>(foodItemRepository.findAll());
+        return foodItemRepository.findAll();
     }
 
     public void save(FoodItemModel foodItemModel) {
