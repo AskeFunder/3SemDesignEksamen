@@ -33,16 +33,16 @@ public class FoodItemController {
         return "redirect:/food-item";
     }
 
-    @GetMapping(value = "/delete/{id}")
-    public String delete(Model model, @PathVariable(value = "id") int id) {
-        model.addAttribute("foodItemModel", foodItemService.getFoodItemById(id));
-
-        return "food-item/delete";
+    @GetMapping(value = "/delete")
+    public FoodItemModel delete(int id) {
+        return foodItemService.getFoodItemById(id);
     }
 
-    @DeleteMapping(value = "/delete/{id}")
-    public String delete(@PathVariable(value = "id") int id) {
-
-        return "redirect:/";
+    @PostMapping("/delete/confirm")
+    public String deleteConfirmed(@ModelAttribute FoodItemModel foodItem, int id)
+    {
+        foodItemService.delete(foodItem, id);
+        return "redirect:/food-item";
     }
+
 }

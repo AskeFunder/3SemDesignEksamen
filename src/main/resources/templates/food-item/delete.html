@@ -10,7 +10,7 @@
 
 <div class="container">
     <h1>Er du sikker på, at du vil slette?</h1>
-    <form th:object="foodItemModel" th:action="@{/food-item/delete/} + ${id}" method="post">
+    <form th:action="@{/food-item/delete/confirm/(id=${foodItemModel.id})}" method="post">
 
         <div class="form-group">
             <label>Navn</label>
@@ -23,11 +23,11 @@
         </div>
 
         <div class="form-group">
-            <label for="description">Beskrivelse</label>
+            <label>Beskrivelse</label>
             <label th:text="${foodItemModel.description}"></label>
         </div>
 
-        <button type="submit" class="btn btn-success">Slet</button>
+        <button type="submit" href="@{../" class="btn btn-success">Slet</button>
 
     </form>
 </div>
