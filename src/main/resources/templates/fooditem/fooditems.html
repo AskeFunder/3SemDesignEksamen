@@ -9,27 +9,30 @@
 
     <div th:include="fragment/style :: nav_navbar"></div>
 
-    <div class="container">
-        <table id="foodItems">
+    <div class = "table-responsive container">
+        <a href="fooditem/create" class="btn btn-primary" role="button">Create</a>
+        <table class = "table">
             <tr>
                 <th>Id</th>
                 <th>Navn</th>
                 <th>Pris</th>
                 <th>Beskrivelse</th>
                 <th></th>
-                <th></th>
             </tr>
             <!-- Display all fooditems from the DB -->
-            <tr th:each="foodItem : ${foodItems}">'
+            <tr th:each="foodItem : ${foodItems}">
                 <td th:text="${foodItem.id}"></td>
                 <td th:text="${foodItem.name}"></td>
                 <td th:text="${foodItem.price}"></td>
                 <td th:text="${foodItem.description}"></td>
-                <td></td>
-                <td></td>
+                <td>
+                    <button type="button" class="btn btn-primary">Edit</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </td>
             </tr>
         </table>
     </div>
 
 </body>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 </html>
