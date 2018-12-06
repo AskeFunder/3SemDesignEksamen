@@ -26,8 +26,7 @@
                 <td th:text="${foodItem.price}"></td>
                 <td th:text="${foodItem.description}"></td>
                 <td>
-
-                    <button type="button" class="btn btn-primary">Edit</button>
+                    
                     <a id="delete"  th:href="@{../food-item/delete/(id=${foodItem.id})}"title="Slet"><i class="fas fa-trash-alt fa-2x"></i></a>
 
                     <a id="edit" th:href="@{../food-item/edit/(id=${foodItem.id})}" title="Rediger"><button class="btn btn-primary">Edit </button><span  data-feather="edit"></span></a>
