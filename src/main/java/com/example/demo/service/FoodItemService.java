@@ -18,4 +18,8 @@ public class FoodItemService {
 
         return new ArrayList<>(foodItemRepository.findAll());
     }
+
+    public void save(FoodItemModel foodItemModel) {
+        foodItemRepository.save(foodItemModel);
+    }
 }
