@@ -16,7 +16,7 @@ public class FoodItemController {
 
     @GetMapping
     public String listAll(Model model) {
-        model.addAttribute("food-items", foodItemService.listAll());
+        model.addAttribute("foodItems", foodItemService.listAll());
 
         return "/food-item/food-items";
     }
