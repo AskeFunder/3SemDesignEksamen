@@ -1,0 +1,36 @@
+git <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" th:src="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}"
+          href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css"/></head>
+<body>
+<div th:include="fragment/style :: nav_navbar"></div>
+
+<div class="container">
+    <h1>Opret madvare</h1>
+    <form th:action="@{/fooditem/save}" method="post">
+
+        <div class="form-group">
+            <label for="name">Navn</label>
+            <input type="text" class="form-control" id="name" value="" th:field="${foodItemModel.name}">
+        </div>
+
+        <div class="form-group">
+            <label for="price">Pris</label>
+            <input type="text" class="form-control" id="price" value="" th:field="${foodItemModel.price}">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Beskrivelse</label>
+            <input type="text" class="form-control" id="description" value="" th:field="${foodItemModel.description}">
+        </div>
+
+        <button type="submit" class="btn btn-success">Opret</button>
+
+    </form>
+</div>
+
+</body>
+</html>

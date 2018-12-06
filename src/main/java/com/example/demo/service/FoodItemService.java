@@ -14,6 +14,10 @@ public class FoodItemService {
     @Autowired
     private FoodItemRepository foodItemRepository;
 
+    public FoodItemModel getFoodItemById(int id) {
+        return foodItemRepository.getOne(id);
+    }
+
     public List<FoodItemModel> listAll() {
 
         return new ArrayList<>(foodItemRepository.findAll());
