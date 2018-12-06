@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping ("fooditem/")
+@RequestMapping("/foodItem")
 public class FoodItemController {
 
     @Autowired
@@ -28,10 +28,9 @@ public class FoodItemController {
         return "fooditem/create";
     }
 
-    @PostMapping ("/save")
+    @PostMapping("/save")
     public String save(@ModelAttribute FoodItemModel foodItemModel){
         foodItemService.save(foodItemModel);
         return "redirect:/fooditem/";
     }
-
 }

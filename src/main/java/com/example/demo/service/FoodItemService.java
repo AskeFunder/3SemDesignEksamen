@@ -5,11 +5,19 @@ import com.example.demo.repository.FoodItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class FoodItemService {
 
     @Autowired
-    FoodItemRepository foodItemRepository;
+    private FoodItemRepository foodItemRepository;
+
+    public List<FoodItemModel> listAll() {
+
+        return new ArrayList<>(foodItemRepository.findAll());
+    }
 
     public void save(FoodItemModel foodItemModel) {
         foodItemRepository.save(foodItemModel);
