@@ -27,7 +27,7 @@
                 <td th:text="${foodItem.description}"></td>
                 <td>
                     <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-danger" th:href="${'/food-item/delete/' + foodItem.id}">Delete</button>
                 </td>
             </tr>
         </table>
