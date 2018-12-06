@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" th:src="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}"
+          href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css"/></head>
+<body>
+<div th:include="fragment/style :: nav_navbar"></div>
+
+<div class="container">
+    <h1>Er du sikker på, at du vil slette?</h1>
+    <form th:object="foodItemModel" th:action="@{/fooditem/delete/} + ${id}" method="post">
+
+        <div class="form-group">
+            <label>Navn</label>
+            <label th:text="${foodItemModel.name}"></label>
+        </div>
+
+        <div class="form-group">
+            <label>Pris</label>
+            <label th:text="${foodItemModel.price}"></label>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Beskrivelse</label>
+            <label th:text="${foodItemModel.description}"></label>
+        </div>
+
+        <button type="submit" class="btn btn-success">Slet</button>
+
+    </form>
+</div>
+
+</body>
+</html>
