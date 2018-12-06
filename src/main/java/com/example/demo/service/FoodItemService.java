@@ -26,10 +26,14 @@ public class FoodItemService {
         foodItemRepository.save(foodItemModel);
     }
 
+    public void delete(FoodItemModel foodItem, int id) {
+        foodItem.setId(id);
+        foodItemRepository.delete(foodItem);
+    }
+
 
     public void editFoodItem(FoodItemModel foodItem, int id){
         foodItem.setId(id);
         foodItemRepository.save(foodItem);
     }
-
 }
