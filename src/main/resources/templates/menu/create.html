@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Opret en Menu</title>
-    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" />
 
 </head>
 <body>
+    <div th:include="fragment/style :: nav_navbar"></div>
+
 
     <div class="container">
         <h1>Opret en Menu</h1>
@@ -34,8 +36,6 @@
 
 
     </div>
-
-
     <script src="/webjars/jquery/3.2.1/jquery.js"></script>
     <script src="/webjars/popper.js/1.12.9/dist/umd/popper.js"></script>
     <script src="/webjars/bootstrap/4.0.0/js/bootstrap.js"></script>
