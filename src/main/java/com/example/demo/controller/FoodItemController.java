@@ -4,8 +4,10 @@ import com.example.demo.service.FoodItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/foodItem")
 public class FoodItemController {
 
     @Autowired
@@ -16,4 +18,8 @@ public class FoodItemController {
         return "index";
     }
 
+    @GetMapping(value = "/listAll")
+    public String listAll() {
+
+    }
 }
