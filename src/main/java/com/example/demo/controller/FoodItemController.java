@@ -8,27 +8,29 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/foodItem")
+@RequestMapping("/fooditem")
 public class FoodItemController {
 
     @Autowired
     FoodItemService foodItemService;
 
-    @GetMapping (value = "/")
-    public String homePage(){
-        return "index";
+    @GetMapping
+    public String listAll(Model model) {
+        model.addAttribute("foodItems", foodItemService.listAll());
+
+        return "/fooditem/fooditems";
     }
 
     @GetMapping (value = "/create")
     public String create(Model model){
         model.addAttribute("foodItemModel", new FoodItemModel());
-        return "foodItem/create";
+        return "/fooditem/create";
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute FoodItemModel foodItemModel){
+    public String create(@ModelAttribute FoodItemModel foodItemModel){
         foodItemService.save(foodItemModel);
-        return "redirect:/foodItem/";
+        return "redirect:/fooditem";
     }
 
     @GetMapping(value = "/delete/{id}")

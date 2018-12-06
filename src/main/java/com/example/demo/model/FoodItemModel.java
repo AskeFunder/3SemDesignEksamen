@@ -1,9 +1,8 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table (name = "foodItem"   )
@@ -16,6 +15,13 @@ public class FoodItemModel {
     String name;
     Double price;
     String description;
+
+    public List<MenuModel> getMenus() {
+        return menus;
+    }
+
+    @ManyToMany(mappedBy = "foodItems")
+    private List<MenuModel> menus = new ArrayList<>();
 
     public FoodItemModel() {
     }

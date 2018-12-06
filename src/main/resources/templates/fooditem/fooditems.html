@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Madvarer</title>
+    <link rel="stylesheet" type="text/css" th:src="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}"
+          href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css"/></head>
+<body>
+
+    <div th:include="fragment/style :: nav_navbar"></div>
+
+    <div class="container">
+        <table id="foodItems">
+            <tr>
+                <th>Id</th>
+                <th>Navn</th>
+                <th>Pris</th>
+                <th>Beskrivelse</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <!-- Display all fooditems from the DB -->
+            <tr th:each="foodItem : ${foodItems}">'
+                <td th:text="${foodItem.id}"></td>
+                <td th:text="${foodItem.name}"></td>
+                <td th:text="${foodItem.price}"></td>
+                <td th:text="${foodItem.description}"></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
