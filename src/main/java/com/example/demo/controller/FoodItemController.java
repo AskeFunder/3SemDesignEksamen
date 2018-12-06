@@ -18,13 +18,13 @@ public class FoodItemController {
     public String listAll(Model model) {
         model.addAttribute("foodItems", foodItemService.listAll());
 
-        return "/food-item/food-items";
+        return "food-item/food-items";
     }
 
     @GetMapping (value = "/create")
     public String create(Model model){
         model.addAttribute("foodItemModel", new FoodItemModel());
-        return "/food-item/create";
+        return "food-item/create";
     }
 
     @PostMapping("/save")
@@ -37,7 +37,7 @@ public class FoodItemController {
     public String delete(Model model, @PathVariable(value = "id") int id) {
         model.addAttribute("foodItemModel", foodItemService.getFoodItemById(id));
 
-        return "delete";
+        return "food-item/delete";
     }
 
     @DeleteMapping(value = "/delete/{id}")
