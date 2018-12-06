@@ -25,4 +25,11 @@ public class FoodItemService {
     public void save(FoodItemModel foodItemModel) {
         foodItemRepository.save(foodItemModel);
     }
+
+
+    public void editFoodItem(FoodItemModel foodItem, int id){
+        foodItem.setId(id);
+        foodItemRepository.save(foodItem);
+    }
+
 }

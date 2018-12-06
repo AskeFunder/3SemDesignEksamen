@@ -33,6 +33,17 @@ public class FoodItemController {
         return "redirect:/food-item";
     }
 
+    @GetMapping("/edit")
+    public FoodItemModel foodItemEditPage(int id){
+        return foodItemService.getFoodItemById(id);
+    }
+    @PostMapping("/edit/save/")
+    public String saveEditCourse (@ModelAttribute FoodItemModel foodItem, int id)
+    {
+        foodItemService.editFoodItem(foodItem, id);
+        return "redirect:/food-item";
+    }
+
     @GetMapping(value = "/delete/{id}")
     public String delete(Model model, @PathVariable(value = "id") int id) {
         model.addAttribute("foodItemModel", foodItemService.getFoodItemById(id));
