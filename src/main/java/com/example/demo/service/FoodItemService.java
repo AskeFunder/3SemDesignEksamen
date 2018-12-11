@@ -4,8 +4,6 @@ import com.example.demo.model.FoodItemModel;
 import com.example.demo.repository.FoodItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -31,9 +29,9 @@ public class FoodItemService {
         foodItemRepository.delete(foodItem);
     }
 
-
     public void editFoodItem(FoodItemModel foodItem, int id){
         foodItem.setId(id);
         foodItemRepository.save(foodItem);
     }
+
 }

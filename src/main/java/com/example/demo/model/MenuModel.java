@@ -9,19 +9,19 @@ import java.util.List;
 public class MenuModel {
 
     @Id
-    @GeneratedValue
-    int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    private int id;
 
-    String name;
+    private Double price;
 
-    Double price;
-
-    String description;
+    private String name;
+    private String description;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "menu_fooditem", joinColumns = @JoinColumn(name = "fooditem_id"),
-            inverseJoinColumns = @JoinColumn(name = "menu_id"))
-    List<FoodItemModel> foodItems = new ArrayList<>();
+    @JoinTable(name = "menu_fooditem", joinColumns = @JoinColumn(name = "menu_id"),
+            inverseJoinColumns = @JoinColumn(name = "fooditem_id"))
+    private List<FoodItemModel> foodItems = new ArrayList<>();
+
 
     public void addFoodItem(FoodItemModel foodItemModel) {
         foodItems.add(foodItemModel);
@@ -34,6 +34,7 @@ public class MenuModel {
 
     }
 
+    // region getters and setters
     public int getId() {
         return id;
     }
@@ -73,4 +74,5 @@ public class MenuModel {
     public void setFoodItems(List<FoodItemModel> foodItems) {
         this.foodItems = foodItems;
     }
+    // endregion
 }
