@@ -21,7 +21,7 @@ public class FoodItemController {
         return "food-item/food-items";
     }
 
-    @GetMapping(value = "/create")
+    @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("foodItemModel", new FoodItemModel());
 
@@ -35,7 +35,7 @@ public class FoodItemController {
         return "redirect:/food-item";
     }
 
-    @GetMapping(value = "/delete")
+    @GetMapping("/delete")
     public FoodItemModel delete(int id) {
         return foodItemService.getFoodItemById(id);
     }
