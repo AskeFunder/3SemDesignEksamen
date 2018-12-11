@@ -6,17 +6,20 @@
     <link rel="stylesheet" type="text/css" th:src="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}"
           href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css"/></head>
 <body>
-
     <div th:include="fragment/style :: nav_navbar"></div>
-
+    <div class="container">
+        <div class="row">
+            <h2 class="col-sm-8">Alle Food Items</h2>
+            <a href="food-item/create" class="col-sm-4"><button class = "btn btn-success float-sm-right">Opret Food Item</button></a>
+        </div>
     <div class = "table-responsive container">
-        <a href="food-item/create" class="btn btn-primary" role="button">Create</a>
         <table class = "table">
             <tr>
                 <th>Id</th>
                 <th>Navn</th>
                 <th>Pris</th>
                 <th>Beskrivelse</th>
+                <th></th>
                 <th></th>
             </tr>
             <!-- Display all fooditems from the DB -->
@@ -25,17 +28,16 @@
                 <td th:text="${foodItem.name}"></td>
                 <td th:text="${foodItem.price} + ' DKK,-'"></td>
                 <td th:text="${foodItem.description}"></td>
+                <td><a id="delete"  th:href="@{../food-item/delete/(id=${foodItem.id})}"title="Slet">
+                    <i class="fas fa-trash-alt fa-2x"></i></a>
                 <td>
-
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <a id="delete"  th:href="@{../food-item/delete/(id=${foodItem.id})}"title="Slet"><i class="fas fa-trash-alt fa-2x"></i></a>
-                    <a id="edit" th:href="@{../food-item/edit/(id=${foodItem.id})}" title="Rediger"><button class="btn btn-primary">Edit </button><span  data-feather="edit"></span></a>
-
+                <td><a id="edit" th:href="@{../food-item/edit/(id=${foodItem.id})}" title="Rediger">
+                <button class="btn btn-primary">Edit </button><span  data-feather="edit"></span></a>
                 </td>
             </tr>
         </table>
     </div>
-
+    </div>
 </body>
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 </html>

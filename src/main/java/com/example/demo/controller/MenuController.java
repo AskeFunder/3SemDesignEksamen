@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.*;
+
 @Controller
 @RequestMapping("/menu")
 public class MenuController {
@@ -46,5 +48,23 @@ public class MenuController {
         model.addAttribute("menuModel", menuService.getOne(id));
         model.addAttribute("foodItems", foodItemService.listAll());
         return "menu/edit";
+    }
+
+    @PutMapping("/edit/save/")
+    public String saveEditMenu(@ModelAttribute MenuModel menuModel, int id) {
+        menuService.editMenu(menuModel, id);
+        return "redirect:/menu";
+    }
+
+    @GetMapping("/delete")
+    public MenuModel menuDeletePage(int id)
+    {
+        return menuService.getOne(id);
+    }
+
+    @DeleteMapping("/delete/confirm")
+    public String deleteConfirmed(@ModelAttribute MenuModel menuModel, int id) {
+        menuService.delete(menuModel, id);
+        return "redirect:/food-item";
     }
 }

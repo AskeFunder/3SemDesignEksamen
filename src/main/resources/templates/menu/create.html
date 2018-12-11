@@ -40,7 +40,7 @@
             </select> -->
                 <div th:each="efood : ${foodItem}">
                     <input type="checkbox" th:id="${{efood.id}}" th:value="${{efood.id}}" th:field="*{menuModel.foodItems}" />
-                    <label th:for="${{efood}}" th:text="${efood.name}">Cinema</label>
+                    <label th:for="${{efood}}" th:text="${efood.name}"></label>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

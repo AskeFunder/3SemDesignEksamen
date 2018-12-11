@@ -22,6 +22,7 @@ public class MenuModel {
             inverseJoinColumns = @JoinColumn(name = "fooditem_id"))
     private List<FoodItemModel> foodItems = new ArrayList<>();
 
+
     public void addFoodItem(FoodItemModel foodItemModel) {
         foodItems.add(foodItemModel);
         foodItemModel.getMenus().add(this);

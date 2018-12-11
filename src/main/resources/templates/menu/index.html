@@ -29,9 +29,9 @@
                         <td th:text="${menus.name}"></td>
                         <td th:text="${menus.description}"></td>
                         <td th:text="${menus.price} + ' DKK,-'"></td>
-                        <!--<td th:text="${courses.teachers}">-->
-                        <td><a th:href="@{../menu/findOne/(id=${menus.id})}"class="btn btn-primary eBtn">Show More</a></td>
-                        <td><a id="edit" th:href="@{../menu/edit/(id=${menus.id})}" title="Edit"><button class="btn btn-primary">Edit </button><span  data-feather="edit"></span></a></td>
+                        <td><a th:href="@{../menu/findOne/(id=${menu.id})}"class="btn btn-primary eBtn">Show More</a></td>
+                        <td><a id="edit" th:href="@{../menu/edit/(id=${menu.id})}" title="Edit"><button class="btn btn-primary">Delete</button><span  data-feather="edit"></span></a></td>
+                        <td><a id="delete"  th:href="@{../menu/delete/(id=${menu.id})}" class="btn btn-danger" title="Slet">Slet</a><td>
                     </tr>
                 </tbody>
             </table>

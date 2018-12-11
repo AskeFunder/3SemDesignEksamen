@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.model.FoodItemModel;
 import com.example.demo.model.MenuModel;
 import com.example.demo.repository.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,4 +26,14 @@ public class MenuService {
     public MenuModel getOne(int id) {
         return menuRepository.getOne(id);
     }
+
+    public void editMenu(MenuModel menuModel, int id){
+        menuModel.setId(id);
+        menuRepository.save(menuModel);
+    }
+    public void delete(MenuModel menuModel, int id) {
+        menuModel.setId(id);
+        menuRepository.delete(menuModel);
+    }
+
 }
