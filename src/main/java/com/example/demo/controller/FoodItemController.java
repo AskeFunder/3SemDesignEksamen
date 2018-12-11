@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class FoodItemController {
 
     @Autowired
-    FoodItemService foodItemService;
+    private FoodItemService foodItemService;
 
     @GetMapping
     public String listAll(Model model) {

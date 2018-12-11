@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.*;
 public class MenuController {
 
     @Autowired
-    MenuService menuService;
+    private MenuService menuService;
     @Autowired
-    FoodItemService foodItemService;
+    private FoodItemService foodItemService;
 
     @GetMapping
     public String menuPage(Model model, @RequestParam(defaultValue = "0") int page) {

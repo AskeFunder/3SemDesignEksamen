@@ -10,17 +10,17 @@ public class MenuModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
-    int id;
+    private int id;
 
-    Double price;
+    private Double price;
 
-    String name;
-    String description;
+    private String name;
+    private String description;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "menu_fooditem", joinColumns = @JoinColumn(name = "menu_id"),
             inverseJoinColumns = @JoinColumn(name = "fooditem_id"))
-    List<FoodItemModel> foodItems = new ArrayList<>();
+    private List<FoodItemModel> foodItems = new ArrayList<>();
 
     public void addFoodItem(FoodItemModel foodItemModel) {
         foodItems.add(foodItemModel);

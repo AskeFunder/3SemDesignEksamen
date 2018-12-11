@@ -10,17 +10,12 @@ import java.util.Objects;
 public class FoodItemModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
-    int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-    String name;
-    Double price;
-    String description;
-
-
-    public List<MenuModel> getMenus() {
-        return menus;
-    }
+    private String name;
+    private Double price;
+    private String description;
 
     @ManyToMany(mappedBy = "foodItems")
     private List<MenuModel> menus = new ArrayList<>();
@@ -58,6 +53,10 @@ public class FoodItemModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<MenuModel> getMenus() {
+        return menus;
     }
 
     @Override
