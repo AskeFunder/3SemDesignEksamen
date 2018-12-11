@@ -9,7 +9,7 @@ import java.util.List;
 public class MenuModel {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
     int id;
 
     Double price;
@@ -18,8 +18,8 @@ public class MenuModel {
     String description;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "menu_fooditem", joinColumns = @JoinColumn(name = "fooditem_id"),
-            inverseJoinColumns = @JoinColumn(name = "menu_id"))
+    @JoinTable(name = "menu_fooditem", joinColumns = @JoinColumn(name = "menu_id"),
+            inverseJoinColumns = @JoinColumn(name = "fooditem_id"))
     List<FoodItemModel> foodItems = new ArrayList<>();
 
     public void addFoodItem(FoodItemModel foodItemModel) {
