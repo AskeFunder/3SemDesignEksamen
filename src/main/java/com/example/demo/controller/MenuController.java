@@ -23,6 +23,13 @@ public class MenuController {
         return "menu/index";
     }
 
+    @GetMapping("/user-ui")
+    public String userUI(Model model, @RequestParam(defaultValue = "0") int page){
+        model.addAttribute("menus", menuService.listAll(page));
+        model.addAttribute("currentPage", page);
+        return "menu/user-menu";
+    }
+
     @GetMapping("/create")
     public String menuCreatePage(Model model){
         model.addAttribute("menuModel", new MenuModel());
@@ -34,5 +41,11 @@ public class MenuController {
     {
         menuService.save(menuModel);
         return "redirect:/menu/";
+    }
+
+    @GetMapping("/findOne")
+    @ResponseBody
+    public MenuModel findOne(Integer id) {
+        return menuService.findMenuById(id);
     }
 }

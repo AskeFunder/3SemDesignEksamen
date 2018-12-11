@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List all Menu</title>
+    <link rel="stylesheet" type="text/css" th:src="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" />
+
+</head>
+<body>
+    <div th:include="fragment/style :: nav_navbar"></div>
+<div class="container">
+    <div class="row card-group">
+        <div class="col-sm-12 col-md-6 col-lg-4 my-4" th:each="menu : ${menus}">
+            <div style="width: 18rem;" class="card text-dark">
+                <img class="card-img-top" th:src="@{/img/food.jpg}">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${menu.name}"></h5>
+                    <p class="card-text" th:text="${menu.description}"></p>
+                    <a th:href="@{../menu/findOne/(id=${menu.id})}" class="btn eBtn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="myModal">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row border-bottom" >
+
+                                <div class="container">
+                                    <label for="row_description" class="col-form-label font-weight-bold">Beskrivelse</label>
+                                    <p id="row_description"></p>
+                                    <br>
+                                    <label for="row_price" class="col-form-label font-weight-bold">Pris pr. kuvert</label>
+                                    <p id="row_price"></p>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <form onSubmit="myFunk()" id="menuform" th:action="@{order/(id=${menus})}" method="post">
+
+                                        <label for="guestcount">Antal ønskede kuverter</label>
+                                        <input id="guestcount" type="text" name="guestcount">
+                                        <input type="submit" value="Submit">
+
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+    <script src="/webjars/jquery/3.2.1/jquery.js"></script>
+    <script src="/webjars/popper.js/1.12.9/dist/umd/popper.js"></script>
+    <script src="/webjars/bootstrap/4.0.0/js/bootstrap.js"></script>
+    <script type="text/javascript" th:src="@{/js/menu.js}" src="../../static/js/menu.js"></script>
+
+</body>
+</html>
