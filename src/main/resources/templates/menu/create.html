@@ -30,13 +30,18 @@
                           value="" th:field="${menuModel.description}"></textarea>
             </div>
             <div class="form-group">
+                <!--
             <select id="foodies" th:field="*{menuModel.foodItems}" size="10" multiple="multiple">
                 <option th:each="efood : ${foodItem}"
                         th:value="${{efood.id}}"
                         th:text="${efood.name}">
                     Cinema
                 </option>
-            </select>
+            </select> -->
+                <div th:each="efood : ${foodItem}">
+                    <input type="checkbox" th:id="${{efood.id}}" th:value="${{efood.id}}" th:field="*{menuModel.foodItems}" />
+                    <label th:for="${{efood}}" th:text="${efood.name}">Cinema</label>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
 
