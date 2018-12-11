@@ -29,7 +29,6 @@ public class FoodItemService {
         foodItemRepository.delete(foodItem);
     }
 
-
     public void editFoodItem(FoodItemModel foodItem, int id){
         foodItem.setId(id);
         foodItemRepository.save(foodItem);

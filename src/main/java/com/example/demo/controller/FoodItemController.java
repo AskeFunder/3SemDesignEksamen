@@ -41,18 +41,18 @@ public class FoodItemController {
     }
 
     @GetMapping("/edit")
-    public FoodItemModel foodItemEditPage( int id){
+    public FoodItemModel foodItemEditPage(int id){
         return foodItemService.getFoodItemById(id);
     }
 
-    @PostMapping("/edit/save/")
-    public String saveEditCourse(@ModelAttribute FoodItemModel foodItem,int id) {
+    @PutMapping("/edit/save/")
+    public String saveEditCourse(@ModelAttribute FoodItemModel foodItem, int id) {
         foodItemService.editFoodItem(foodItem, id);
         return "redirect:/food-item";
     }
 
-    @PostMapping("/delete/confirm")
-    public String deleteConfirmed(@ModelAttribute FoodItemModel foodItem,int id) {
+    @DeleteMapping("/delete/confirm")
+    public String deleteConfirmed(@ModelAttribute FoodItemModel foodItem, int id) {
         foodItemService.delete(foodItem, id);
         return "redirect:/food-item";
     }
