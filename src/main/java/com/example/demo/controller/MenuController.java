@@ -30,7 +30,7 @@ public class MenuController {
     @GetMapping("/create")
     public String menuCreatePage(Model model){
         model.addAttribute("menuModel", new MenuModel());
-        model.addAttribute("foodItemModel",foodItemService.listAll());
+        model.addAttribute("foodItem",foodItemService.listAll());
         return "menu/create";
     }
 

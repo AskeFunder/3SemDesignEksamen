@@ -23,21 +23,21 @@
                 <input type="text" class="form-control" id="menu_price" name="menu_price" value=""
                        th:field="${menuModel.price}"/>
             </div>
-            <div class="form-group">
+            <div class="form-group" >
                 <label for="menu_name" class="col-form-label">Lav en kort beskrivelse</label>
                 <textarea class="form-control" rows="5" id="menu_description"
                           name="menu_description"
                           value="" th:field="${menuModel.description}"></textarea>
             </div>
-            <!--
-            <ul>
-                <li th:each="foodItemModel : ${foodItemModel}">
-                    <input type="checkbox" th:field="*{foodItemModel.id}"
-                           th:value="${foodItemModel.name}" />
-                    <label th:for="${#ids.prev('foodItemModel')}"
-                           th:text="#{${'foodItemModel' + foodItemModel.name}}">Heating</label>
-                </li>
-            </ul> -->
+            <div class="form-group">
+            <select id="foodies" th:field="*{menuModel.foodItems}" size="10" multiple="multiple">
+                <option th:each="efood : ${foodItem}"
+                        th:value="${{efood.id}}"
+                        th:text="${efood.name}">
+                    Cinema
+                </option>
+            </select>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
 
         </form>
