@@ -12,10 +12,9 @@ public class MenuModel {
     @GeneratedValue
     int id;
 
-    String name;
-
     Double price;
 
+    String name;
     String description;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -34,6 +33,7 @@ public class MenuModel {
 
     }
 
+    // region getters and setters
     public int getId() {
         return id;
     }
@@ -73,4 +73,5 @@ public class MenuModel {
     public void setFoodItems(List<FoodItemModel> foodItems) {
         this.foodItems = foodItems;
     }
+    // endregion
 }
