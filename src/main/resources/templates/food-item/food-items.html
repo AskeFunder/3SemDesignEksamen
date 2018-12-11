@@ -9,8 +9,8 @@
     <div th:include="fragment/style :: nav_navbar"></div>
     <div class="container">
         <div class="row">
-            <h2 class="col-sm-8">Alle Food Items</h2>
-            <a href="food-item/create" class="col-sm-4"><button class = "btn btn-success float-sm-right">Opret Food Item</button></a>
+            <h2 class="col-sm-8">Madvarer</h2>
+            <a href="food-item/create" class="col-sm-4"><button class = "btn btn-success float-sm-right">Opret Madvare</button></a>
         </div>
     <div class = "table-responsive container">
         <table class = "table">
@@ -32,7 +32,7 @@
                     <i class="fas fa-trash-alt fa-2x"></i></a>
                 <td>
                 <td><a id="edit" th:href="@{../food-item/edit/(id=${foodItem.id})}" title="Rediger">
-                <button class="btn btn-primary">Edit </button><span  data-feather="edit"></span></a>
+                <button class="btn btn-primary">Redigér</button><span  data-feather="edit"></span></a>
                 </td>
             </tr>
         </table>

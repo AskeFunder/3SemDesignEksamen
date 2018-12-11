@@ -11,39 +11,31 @@
 
 
     <div class="container">
-        <h1>Opret en Menu</h1>
+        <h1>Opret Menu</h1>
         <form th:action="@{/menu/save}" method="post">
             <div class="form-group">
-                <label for="menu_name" class="col-form-label">Angiv Menu Navn</label>
+                <label for="menu_name" class="col-form-label">Navn</label>
                 <input type="text" class="form-control" id="menu_name" name="menu_name" value=""
                        th:field="${menuModel.name}"/>
             </div>
             <div class="form-group">
-                <label for="menu_price" class="col-form-label">Angiv en pris pr. Kuvert</label>
+                <label for="menu_price" class="col-form-label">Pris pr. Kuvert</label>
                 <input type="text" class="form-control" id="menu_price" name="menu_price" value=""
                        th:field="${menuModel.price}"/>
             </div>
             <div class="form-group" >
-                <label for="menu_name" class="col-form-label">Lav en kort beskrivelse</label>
+                <label for="menu_description" class="col-form-label">Beskrivelse</label>
                 <textarea class="form-control" rows="5" id="menu_description"
                           name="menu_description"
                           value="" th:field="${menuModel.description}"></textarea>
             </div>
             <div class="form-group">
-                <!--
-            <select id="foodies" th:field="*{menuModel.foodItems}" size="10" multiple="multiple">
-                <option th:each="efood : ${foodItem}"
-                        th:value="${{efood.id}}"
-                        th:text="${efood.name}">
-                    Cinema
-                </option>
-            </select> -->
                 <div th:each="efood : ${foodItem}">
                     <input type="checkbox" th:id="${{efood.id}}" th:value="${{efood.id}}" th:field="*{menuModel.foodItems}" />
                     <label th:for="${{efood}}" th:text="${efood.name}"></label>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-success mb-2">Opret</button>
 
         </form>
 
