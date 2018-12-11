@@ -20,6 +20,7 @@ public class OrderModel {
     private String customerEmail;
     private String customerAddress;
     private String customerPhoneNumber;
+    private String customerComment;
 
     private Date deliveryDate;
     private Date orderDate;
@@ -100,6 +101,14 @@ public class OrderModel {
 
     public void setCustomerPhoneNumber(String customerPhoneNumber) {
         this.customerPhoneNumber = customerPhoneNumber;
+    }
+
+    public String getCustomerComment() {
+        return customerComment;
+    }
+
+    public void setCustomerComment(String customerComment) {
+        this.customerComment = customerComment;
     }
 
     public Date getDeliveryDate() {
