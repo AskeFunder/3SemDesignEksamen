@@ -31,5 +31,9 @@ public class MenuService {
         menuModel.setId(id);
         menuRepository.save(menuModel);
     }
+    public void delete(MenuModel menuModel, int id) {
+        menuModel.setId(id);
+        menuRepository.delete(menuModel);
+    }
 
 }

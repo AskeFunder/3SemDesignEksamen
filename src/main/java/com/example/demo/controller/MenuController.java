@@ -48,10 +48,20 @@ public class MenuController {
     {
         return menuService.getMenuById(id);
     }
-
     @PutMapping("/edit/save/")
     public String saveEditMenu(@ModelAttribute MenuModel menuModel, int id) {
         menuService.editMenu(menuModel, id);
         return "redirect:/menu";
+    }
+
+    @GetMapping("/delete")
+    public MenuModel menuDeletePage(int id)
+    {
+        return menuService.getMenuById(id);
+    }
+    @DeleteMapping("/delete/confirm")
+    public String deleteConfirmed(@ModelAttribute MenuModel menuModel, int id) {
+        menuService.delete(menuModel, id);
+        return "redirect:/food-item";
     }
 }
