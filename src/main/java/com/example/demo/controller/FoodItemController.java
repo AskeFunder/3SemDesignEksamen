@@ -24,12 +24,14 @@ public class FoodItemController {
     @GetMapping(value = "/create")
     public String create(Model model) {
         model.addAttribute("foodItemModel", new FoodItemModel());
+
         return "food-item/create";
     }
 
     @PostMapping("/save")
     public String create(@ModelAttribute FoodItemModel foodItemModel) {
         foodItemService.save(foodItemModel);
+
         return "redirect:/food-item";
     }
 
@@ -39,21 +41,19 @@ public class FoodItemController {
     }
 
     @GetMapping("/edit")
-    public FoodItemModel foodItemEditPage ( int id){
+    public FoodItemModel foodItemEditPage( int id){
         return foodItemService.getFoodItemById(id);
     }
+
     @PostMapping("/edit/save/")
-    public String saveEditCourse (@ModelAttribute FoodItemModel foodItem,int id)
-    {
+    public String saveEditCourse(@ModelAttribute FoodItemModel foodItem,int id) {
         foodItemService.editFoodItem(foodItem, id);
         return "redirect:/food-item";
     }
 
     @PostMapping("/delete/confirm")
-    public String deleteConfirmed (@ModelAttribute FoodItemModel foodItem,int id)
-    {
+    public String deleteConfirmed(@ModelAttribute FoodItemModel foodItem,int id) {
         foodItemService.delete(foodItem, id);
         return "redirect:/food-item";
     }
-
 }
