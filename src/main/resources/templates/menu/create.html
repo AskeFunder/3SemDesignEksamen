@@ -29,6 +29,7 @@
                           name="menu_description"
                           value="" th:field="${menuModel.description}"></textarea>
             </div>
+            <!--
             <ul>
                 <li th:each="foodItemModel : ${foodItemModel}">
                     <input type="checkbox" th:field="*{foodItemModel.id}"
@@ -36,7 +37,7 @@
                     <label th:for="${#ids.prev('foodItemModel')}"
                            th:text="#{${'foodItemModel' + foodItemModel.name}}">Heating</label>
                 </li>
-            </ul>
+            </ul> -->
             <button type="submit" class="btn btn-primary">Submit</button>
 
         </form>
