@@ -23,7 +23,7 @@
             <tr th:each="foodItem : ${foodItems}">
                 <td th:text="${foodItem.id}"></td>
                 <td th:text="${foodItem.name}"></td>
-                <td th:text="${foodItem.price}"></td>
+                <td th:text="${foodItem.price} + ' DKK,-'"></td>
                 <td th:text="${foodItem.description}"></td>
                 <td>
 

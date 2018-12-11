@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" th:src="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}"
+          href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css"/></head>
+<body>
+<div th:include="fragment/style :: nav_navbar"></div>
+
+<div class="container">
+    <h1>Rediger madvare</h1>
+    <form th:action="@{/menu/edit/save/(id=${menuModel.id})}" th:method="put">
+
+        <div class="form-group">
+            <label for="name">Navn</label>
+            <input type="text" class="form-control" id="name" value="" th:field="${menuModel.name}">
+        </div>
+
+        <div class="form-group">
+            <label for="price">Pris</label>
+            <input type="text" class="form-control" id="price" value="" th:field="${menuModel.price}">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Beskrivelse</label>
+            <input type="text" class="form-control" id="description" value="" th:field="${menuModel.description}">
+        </div>
+
+        <div class="form-group">
+            <!--
+        <select id="foodies" th:field="*{menuModel.foodItems}" size="10" multiple="multiple">
+            <option th:each="efood : ${foodItem}"
+                    th:value="${{efood.id}}"
+                    th:text="${efood.name}">
+                Cinema
+            </option>
+        </select> -->
+            <div th:each="efood : ${foodItems}">
+                <input type="checkbox" th:id="${{efood.id}}" th:value="${{efood.id}}" th:field="*{menuModel.foodItems}" />
+                <label th:for="${{efood}}" th:text="${efood.name}">Cinema</label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Gem</button>
+
+    </form>
+</div>
+
+</body>
+</html>

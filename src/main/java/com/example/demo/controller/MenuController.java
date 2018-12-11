@@ -40,4 +40,11 @@ public class MenuController {
         menuService.save(menuModel);
         return "redirect:/menu/";
     }
+
+    @GetMapping("/edit")
+    public String edit(Model model, int id) {
+        model.addAttribute("menuModel", menuService.getOne(id));
+        model.addAttribute("foodItems", foodItemService.listAll());
+        return "menu/edit";
+    }
 }

@@ -22,4 +22,7 @@ public class MenuService {
         menuRepository.save(menuModel);
     }
 
+    public MenuModel getOne(int id) {
+        return menuRepository.getOne(id);
+    }
 }
