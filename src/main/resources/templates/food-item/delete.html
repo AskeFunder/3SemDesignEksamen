@@ -10,7 +10,7 @@
 
 <div class="container">
     <h1>Er du sikker på, at du vil slette?</h1>
-    <form th:action="@{/food-item/delete/confirm/(id=${foodItemModel.id})}" method="post">
+    <form th:action="@{/food-item/delete/confirm/(id=${foodItemModel.id})}" th:method="delete">
 
         <div class="form-group">
             <label>Navn</label>

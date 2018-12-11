@@ -10,7 +10,7 @@
 
 <div class="container">
     <h1>Rediger madvare</h1>
-    <form th:action="@{/food-item/edit/save/(id=${foodItemModel.id})}" method="post">
+    <form th:action="@{/food-item/edit/save/(id=${foodItemModel.id})}" th:method="put">
 
         <div class="form-group">
             <label for="name">Navn</label>
