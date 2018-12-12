@@ -10,16 +10,26 @@
     <div th:include="fragment/style :: nav_navbar"></div>
     <div class="container">
         <div class="row">
-            <h2 class="col-sm-8">Menuer</h2>
-            <a href="/menu/create" class="col-sm-4"><button class = "btn btn-success float-sm-right">Opret Menu</button></a>
+            <div class="col-sm">
+                <h2>Menuer</h2>
+            </div>
+            <div>
+                <div class="col-sm">
+                    <a href="menu/create">
+                        <button href="menu/create" class = "btn btn-success m-1">Opret Menu</button>
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="table-responsive">
-            <table id="coursetable" class="table table-striped table-sm">
+            <table id="coursetable" class="table table-hover">
                 <thead>
                     <tr>
                         <th>Navn</th>
                         <th>Beskrivelse</th>
                         <th>Pris</th>
+                        <th></th>
+                        <th></th>
                         <th></th>
 
                     </tr>
@@ -29,9 +39,9 @@
                         <td th:text="${menu.name}"></td>
                         <td th:text="${menu.description}"></td>
                         <td th:text="${menu.price} + ' DKK,-'"></td>
-                        <td><a th:href="@{../menu/findOne/(id=${menu.id})}"class="btn btn-primary eBtn">Vis Mere</a></td>
+                        <td><a th:href="@{../menu/findOne/(id=${menu.id})}"class="btn btn-info eBtn">Vis Mere</a></td>
                         <td><a id="edit" th:href="@{../menu/edit/(id=${menu.id})}" title="Edit"><button class="btn btn-primary">Redigér</button><span  data-feather="edit"></span></a></td>
-                        <td><a id="delete"  th:href="@{../menu/delete/(id=${menu.id})}" class="btn btn-danger" title="Slet">Slet</a><td>
+                        <td><a id="delete"  th:href="@{../menu/delete/(id=${menu.id})}" class="btn btn-danger" title="Slet">Slet</a></td>
                     </tr>
                 </tbody>
             </table>

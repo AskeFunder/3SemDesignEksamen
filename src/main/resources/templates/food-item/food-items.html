@@ -9,11 +9,20 @@
     <div th:include="fragment/style :: nav_navbar"></div>
     <div class="container">
         <div class="row">
-            <h2 class="col-sm-8">Madvarer</h2>
-            <a href="food-item/create" class="col-sm-4"><button class = "btn btn-success float-sm-right">Opret Madvare</button></a>
+            <div class="col-sm">
+                <h2>Madvarer</h2>
+            </div>
+            <div>
+                <div class="col-sm">
+                    <a href="food-item/create">
+                    <button href="food-item/create" class = "btn btn-success m-1">Opret Madvare</button>
+                    </a>
+                </div>
+            </div>
         </div>
-    <div class = "table-responsive container">
-        <table class = "table">
+    <div class = "table-responsive">
+        <table class = "table table-hover">
+            <thead>
             <tr>
                 <th>Id</th>
                 <th>Navn</th>
@@ -22,30 +31,28 @@
                 <th></th>
                 <th></th>
             </tr>
+            </thead>
+            <tbody>
             <!-- Display all fooditems from the DB -->
             <tr th:each="foodItem : ${foodItems}">
                 <td th:text="${foodItem.id}"></td>
                 <td th:text="${foodItem.name}"></td>
                 <td th:text="${foodItem.price} + ' DKK,-'"></td>
                 <td th:text="${foodItem.description}"></td>
-                <td><a id="delete"  th:href="@{../food-item/delete/(id=${foodItem.id})}"title="Slet">
-                    <i class="fas fa-trash-alt fa-2x"></i></a>
-                <td>
-
-                    
-                    <a id="delete"  th:href="@{../food-item/delete/(id=${foodItem.id})}"title="Slet"><i class="fas fa-trash-alt fa-2x"></i></a>
-
-                    <a id="edit" th:href="@{../food-item/edit/(id=${foodItem.id})}" title="Rediger"><button class="btn btn-primary">Edit </button><span  data-feather="edit"></span></a>
-
-
+                <!-- -->
                 <td><a id="edit" th:href="@{../food-item/edit/(id=${foodItem.id})}" title="Rediger">
-                <button class="btn btn-primary">Redigér</button><span  data-feather="edit"></span></a>
-
-                </td>
+                    <button class="btn btn-primary">Redigér</button></a></td>
+                <!-- -->
+                <td><a id="delete"  th:href="@{../food-item/delete/(id=${foodItem.id})}"title="Slet">
+                    <button class="btn btn-danger">Slet</button></a></td>
             </tr>
+            </tbody>
         </table>
     </div>
     </div>
+
+    <script src="/webjars/jquery/3.2.1/jquery.js"></script>
+    <script src="/webjars/popper.js/1.12.9/dist/umd/popper.js"></script>
+    <script src="/webjars/bootstrap/4.0.0/js/bootstrap.js"></script>
 </body>
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 </html>
