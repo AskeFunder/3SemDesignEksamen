@@ -11,7 +11,7 @@
 <div class="container">
     <h1>Redigér Madvare</h1>
     <form th:action="@{/food-item/edit/save/(id=${foodItemModel.id})}" th:method="put">
-
+<hr>
         <div class="form-group">
             <label for="name">Navn</label>
             <input type="text" class="form-control" id="name" value="" th:field="${foodItemModel.name}">
@@ -28,7 +28,7 @@
                       name="description"
                       value="" th:field="${foodItemModel.description}"></textarea>
         </div>
-
+            <hr>
         <button type="submit" class="btn btn-success mb-2">Gem</button>
 
     </form>

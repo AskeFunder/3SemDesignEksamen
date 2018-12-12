@@ -12,6 +12,7 @@
 
     <div class="container">
         <h1>Opret Menu</h1>
+        <hr>
         <form th:action="@{/menu/save}" method="post">
             <div class="form-group">
                 <label for="menu_name" class="col-form-label">Navn</label>
@@ -35,6 +36,7 @@
                     <label th:for="${{efood}}" th:text="${efood.name}"></label>
                 </div>
             </div>
+            <hr>
             <button type="submit" class="btn btn-success mb-2">Opret</button>
 
         </form>
