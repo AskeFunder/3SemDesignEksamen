@@ -51,10 +51,9 @@ public class MenuController {
 
 
     @GetMapping("/findOne")
-    @ResponseBody
-    public MenuModel findOne(Integer id) {
-        return menuService.findMenuById(id);
-
+    public String findMenuAndFood(Model model, int id) {
+        model.addAttribute("menuModel", menuService.getOne(id));
+        return "menu/one";
     }
 
     @GetMapping("/edit")
