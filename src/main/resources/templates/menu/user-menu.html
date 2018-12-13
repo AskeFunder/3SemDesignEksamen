@@ -53,7 +53,7 @@
     <div class="row text-center mt-5 mb-5">
         <div class="col-lg-4 col-md-6 mb-4" th:each="menu : ${menus}">
             <div class="card border border-dark" style="box-shadow: black; filter: drop-shadow(3px 3px 3px black)">
-            <div th:href="@{../menu/findOne/(id=${menu.id})}" class="card text-dark"> <!-- style="border: 2px solid silver; width: 18rem; filter: drop-shadow(5px 5px 5px black);" -->
+            <div th:href="@{../menu/findOneJson/(id=${menu.id})}" class="card text-dark"> <!-- style="border: 2px solid silver; width: 18rem; filter: drop-shadow(5px 5px 5px black);" -->
                 <img class="card-img-top " th:src="@{/img/food.jpg}">
                 <div class="card-body ">
                     <h5 class="card-title" th:text="${menu.name}"></h5>

@@ -13,33 +13,62 @@
     <form th:action="@{/order/create}" th:method="post">
 
 
-        <div class="form-group">
-            <label for="customerName">Navn</label>
-            <input type="text" class="form-control" id="customerName" value=""
-                   th:field="${orderModel.customerName}">
-        </div>
+            <hr>
+            <div class="form-group">
+                <label for="customerEmail">Kunde email</label>
+                <input type="text" class="form-control" id="customerEmail" value="">
+            </div>
 
-        <div class="form-group">
-            <label for="customerEmail">E-mail</label>
-            <input type="text" class="form-control" id="customerEmail" value=""
-                   th:field="${orderModel.customerEmail}">
-        </div>
+            <div class="form-group" >
+                <label for="customerAddress" >Kunde addresse</label>
+                <input type="text" class="form-control" id="customerAddress" value="">
+            </div>
 
-        <div class="form-group">
-            <label for="customerAddress">Adresse</label>
-            <input type="text" class="form-control" id="customerAddress" value=""
-                   th:field="${orderModel.customerAddress}">
-        </div>
+            <div class="form-group" >
+                <label for="orderDate" >Order date</label>
+                <input type="text" class="form-control" id="orderDate" value="">
+            </div>
 
-        <div class="form-group">
-            <label for="customerPhoneNumber">Tlf.</label>
-            <input type="text" class="form-control" id="customerPhoneNumber" value=""
-                   th:field="${orderModel.customerPhoneNumber}">
-        </div>
+            <div class="form-group" >
+                <label for="deliveryDate" >Delivery date</label>
+                <input type="text" class="form-control" id="deliveryDate" value="">
+            </div>
+
+            <div class="form-group" >
+                <label for="customerComment" >Kunde kommentar</label>
+                <input type="text" class="form-control" id="customerComment" value="">
+            </div>
 
 
 
-        <button type="submit" class="btn btn-success">Opret</button>
+            <label for="orderinfo"></label>
+            <div id="orderinfo" class="row">
+
+                <div class="form-group">
+                    <label for="chosenmenu">Valgte menu</label>
+                    <input id="chosenmenu" type="text" th:value="${menu.name}" class="form-control" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="guestCount">Antal kuverter</label>
+                    <input type="text" th:value="${quantity}" class="form-control" id="guestCount" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="totalPrice">Total pris</label>
+                    <input type="text" th:value="${totalprice}" class="form-control" id="totalPrice" readonly>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+
+
+
+
+        <button type="submit" class="btn btn-success">Bestil</button>
 
     </form>
 </div>

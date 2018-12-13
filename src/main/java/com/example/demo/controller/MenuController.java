@@ -49,6 +49,11 @@ public class MenuController {
         return "redirect:/menu/";
     }
 
+    @GetMapping("/findOneJson")
+    @ResponseBody
+    public MenuModel findOne(Integer id) {
+        return menuService.findMenuById(id);
+    }
 
     @GetMapping("/findOne")
     public String findMenuAndFood(Model model, int id) {

@@ -33,8 +33,9 @@ public class OrderController {
     }*/
 
     @GetMapping("/create")
-    public void createOrder(Model model, @RequestParam("id") Integer id, @RequestParam("quantity") Integer quantity) {
+    public void createOrder(Model model, @RequestParam("id") int id, @RequestParam("quantity") int quantity) {
         model.addAttribute("menu", menuRepository.getOne(id));
+        model.addAttribute("totalprice", menuRepository.getOne(id).getPrice() * quantity);
         model.addAttribute("quantity", quantity);
         model.addAttribute("orderModel", new OrderModel());
     }
