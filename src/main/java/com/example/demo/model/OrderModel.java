@@ -22,8 +22,8 @@ public class OrderModel {
     private String customerPhoneNumber;
     private String customerComment;
 
-    private Date deliveryDate;
-    private Date orderDate;
+    private String deliveryDate;
+    private String orderDate;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private MenuModel menu;
@@ -33,7 +33,7 @@ public class OrderModel {
     }
 
     public OrderModel(int guestCount, double priceTotal, String customerName, String customerEmail,
-                      String customerAddress, String customerPhoneNumber, Date deliveryDate, Date orderDate,
+                      String customerAddress, String customerPhoneNumber, String deliveryDate, String orderDate,
                       MenuModel menu) {
         this.guestCount = guestCount;
         this.priceTotal = priceTotal;
@@ -111,19 +111,19 @@ public class OrderModel {
         this.customerComment = customerComment;
     }
 
-    public Date getDeliveryDate() {
+    public String getDeliveryDate() {
         return deliveryDate;
     }
 
-    public void setDeliveryDate(Date deliveryDate) {
+    public void setDeliveryDate(String deliveryDate) {
         this.deliveryDate = deliveryDate;
     }
 
-    public Date getOrderDate() {
+    public String getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(String orderDate) {
         this.orderDate = orderDate;
     }
 

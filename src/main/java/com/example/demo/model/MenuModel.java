@@ -27,8 +27,8 @@ public class MenuModel {
             inverseJoinColumns = @JoinColumn(name = "fooditem_id"))
     private List<FoodItemModel> foodItems = new ArrayList<>();
 
-    @OneToMany (mappedBy = "menu")
-    Set<OrderModel> orderModels = new HashSet<>();
+    //@OneToMany (mappedBy = "menu")
+   // Set<OrderModel> orderModels = new HashSet<>();
 
     public void addFoodItem(FoodItemModel foodItemModel) {
         foodItems.add(foodItemModel);
