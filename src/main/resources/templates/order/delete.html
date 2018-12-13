@@ -19,14 +19,20 @@
         </div>
 
         <div class="form-group">
-            <label>Pris:</label>
-            <label th:text="${orderModel.price}"></label>
+            <label>Menu:</label>
+            <label th:text="${orderModel.menu.name}"></label>
         </div>
 
         <div class="form-group">
-            <label>Menu:</label>
-            <label th:text="${orderModel.menu}"></label>
+            <label>Pris:</label>
+            <label th:text="${orderModel.priceTotal}"></label>
         </div>
+
+        <div class="form-group">
+            <label>Antal kuverter:</label>
+            <label th:text="${orderModel.guestCount}"></label>
+        </div>
+
     <hr>
         <button type="submit" href="@{../" class="btn btn-danger mb-2">Slet</button>
 
