@@ -17,6 +17,13 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    @GetMapping
+    public String listAll(Model model) {
+        model.addAttribute("orders", orderService.listAll());
+
+        return "order/index";
+    }
+
     @GetMapping("/create")
     public void createOrder(Model model) {
         model.addAttribute("orderModel", new OrderModel());
