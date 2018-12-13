@@ -26,11 +26,9 @@ public class OrderController {
         return "order/index";
     }
 
-    /*@GetMapping("/order/order/")
-    public String menuOrder(@RequestParam("id") int id, @RequestParam("quantity") int quantity)
-    {
-        return "hello"
-    }*/
+
+
+
 
     @GetMapping("/create")
     public void createOrder(Model model, @RequestParam("id") int id, @RequestParam("quantity") int quantity) {
@@ -40,7 +38,7 @@ public class OrderController {
         model.addAttribute("orderModel", new OrderModel());
     }
 
-    @PostMapping("/create")
+    @PostMapping("/save")
     public String createOrder(@ModelAttribute OrderModel orderModel) {
         orderService.createOrder(orderModel);
 
