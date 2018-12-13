@@ -30,6 +30,10 @@ public class MenuModel {
     @OneToMany (mappedBy = "menu")
     Set<OrderModel> orderModels = new HashSet<>();
 
+    //@OneToMany (mappedBy = "menu")
+   // Set<OrderModel> orderModels = new HashSet<>();
+
+
     public void addFoodItem(FoodItemModel foodItemModel) {
         foodItems.add(foodItemModel);
         foodItemModel.getMenus().add(this);

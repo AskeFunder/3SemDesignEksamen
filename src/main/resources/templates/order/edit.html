@@ -24,6 +24,38 @@
 
         <div class="form-group" >
             <label for="guestCount" class="col-form-label">Antal kuverter</label>
+        <div class="form-group">
+            <label for="customerName">Kunde navn</label>
+            <input type="text" class="form-control" id="customerName" value="" th:field="${order.customerName}">
+        </div>
+
+        <div class="form-group">
+            <label for="customerEmail">Kunde email</label>
+            <input type="text" class="form-control" id="customerEmail" value="" th:field="${order.customerEmail}">
+        </div>
+
+        <div class="form-group" >
+            <label for="customerAddress" >Kunde addresse</label>
+            <input type="text" class="form-control" id="customerAddress" value="" th:field="${order.customerAddress}">
+        </div>
+
+        <div class="form-group" >
+            <label for="orderDate" >Order date</label>
+            <input type="text" class="form-control" id="orderDate" value="" th:field="${order.orderDate}">
+        </div>
+
+        <div class="form-group" >
+            <label for="deliveryDate" >Delivery date</label>
+            <input type="text" class="form-control" id="deliveryDate" value="" th:field="${order.deliveryDate}">
+        </div>
+
+        <div class="form-group" >
+            <label for="customerComment" >Kunde kommentar</label>
+            <input type="text" class="form-control" id="customerComment" value="" th:field="${order.customerComment}">
+        </div>
+
+        <div class="form-group">
+            <label for="guestCount" >Antal kuverter</label>
             <input type="text" class="form-control" id="guestCount" value="" th:field="${order.guestCount}">
         </div>
         <hr>
