@@ -13,20 +13,13 @@
     <form th:action="@{/order/edit/save/(id=${order.id})}" th:method="put">
         <hr>
         <div class="form-group">
-            <label for="menuName">Navn på menu</label>
-            <input type="text" class="form-control" id="menuName" value="" th:field="${order.menu.name}">
+            <label for="menuName"></label>
+            <input type="hidden" class="form-control" id="menuName" value="" th:field="${order.menu.name}">
         </div>
 
         <div class="form-group">
             <label for="priceTotal">Pris</label>
-            <input type="text" class="form-control" id="priceTotal" value="" th:field="${order.priceTotal}">
-        </div>
-
-        <div class="form-group" >
-            <label for="guestCount" class="col-form-label">Antal kuverter</label>
-        <div class="form-group">
-            <label for="customerName">Kunde navn</label>
-            <input type="text" class="form-control" id="customerName" value="" th:field="${order.customerName}">
+            <input type="hidden" class="form-control" id="priceTotal" value="" th:field="${order.priceTotal}">
         </div>
 
         <div class="form-group">
