@@ -56,60 +56,9 @@
         </div>
         <hr>
     </div>
-    <!-- The Modals time to shine-->
-    <div class="myModal">
-        <form th:action="@{/save}" method="post">
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Detaljer om Menu</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="container-fluid">
-                                <div class="row border-bottom" >
-                                    <div class="col-md-4 border-right">
-                                        <label for="row_name" class="col-form-label font-weight-bold">Navn</label>
-                                        <p id="row_name"></p>
-                                    </div>
-                                    <div class="col-md-4 border-right">
-                                        <label for="row_price" class="col-form-label font-weight-bold">Pris</label>
-                                        <p id="row_price"></p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="row_description" class="col-form-label font-weight-bold">Beskrivelse</label>
-                                        <p id="row_description"></p>
-                                    </div>
-                                </div>
-                                <div class="row border-bottom" >
-                                    <div class="col-md-4 border-right">
-                                        <label for="row_items" class="col-form-label font-weight-bold">Indhold i menu</label>
-                                        <p id="row_items"></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-
-
-
-
 
     <script src="/webjars/jquery/3.2.1/jquery.js"></script>
     <script src="/webjars/popper.js/1.12.9/dist/umd/popper.js"></script>
     <script src="/webjars/bootstrap/4.0.0/js/bootstrap.js"></script>
-    <script type="text/javascript" th:src="@{/js/showMenu.js}" src="../../static/js/showMenu.js"></script>
-
 </body>
 </html>
