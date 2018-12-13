@@ -56,5 +56,4 @@ public class FoodItemController {
         foodItemService.delete(foodItem, id);
         return "redirect:/food-item";
     }
-
 }
