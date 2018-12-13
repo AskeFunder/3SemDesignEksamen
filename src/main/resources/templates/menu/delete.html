@@ -10,27 +10,32 @@
 
 <div class="container">
     <h1>Er du sikker på, at du vil slette?</h1>
+    <hr>
     <form th:action="@{/menu/delete/confirm/(id=${menuModel.id})}" th:method="delete">
 
         <div class="form-group">
-            <label>Navn</label>
+            <label>Navn:</label>
             <label th:text="${menuModel.name}"></label>
         </div>
 
         <div class="form-group">
-            <label>Pris</label>
+            <label>Pris:</label>
             <label th:text="${menuModel.price}"></label>
         </div>
 
         <div class="form-group">
-            <label>Beskrivelse</label>
+            <label>Beskrivelse:</label>
             <label th:text="${menuModel.description}"></label>
         </div>
-
+    <hr>
         <button type="submit" href="@{../" class="btn btn-danger mb-2">Slet</button>
 
     </form>
 </div>
 
+
+    <script src="/webjars/jquery/3.2.1/jquery.js"></script>
+    <script src="/webjars/popper.js/1.12.9/dist/umd/popper.js"></script>
+    <script src="/webjars/bootstrap/4.0.0/js/bootstrap.js"></script>
 </body>
 </html>

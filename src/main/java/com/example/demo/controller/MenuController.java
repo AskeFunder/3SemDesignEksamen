@@ -24,28 +24,27 @@ public class MenuController {
 
     @GetMapping
     public String menuPage(Model model, @RequestParam(defaultValue = "0") int page) {
-        model.addAttribute("menus", menuService.listAll(page) );
-        model.addAttribute("currentPage",page);
+        model.addAttribute("menus", menuService.listAll(page));
+        model.addAttribute("currentPage", page);
         return "menu/index";
     }
 
     @GetMapping("/user-ui")
-    public String userUI(Model model, @RequestParam(defaultValue = "0") int page){
+    public String userUI(Model model, @RequestParam(defaultValue = "0") int page) {
         model.addAttribute("menus", menuService.listAll(page));
         model.addAttribute("currentPage", page);
         return "menu/user-menu";
     }
 
     @GetMapping("/create")
-    public String menuCreatePage(Model model){
+    public String menuCreatePage(Model model) {
         model.addAttribute("menuModel", new MenuModel());
-        model.addAttribute("foodItem",foodItemService.listAll());
+        model.addAttribute("foodItem", foodItemService.listAll());
         return "menu/create";
     }
 
     @PostMapping("/save")
-    public String saveCourse(@ModelAttribute MenuModel menuModel)
-    {
+    public String saveCourse(@ModelAttribute MenuModel menuModel) {
         menuService.save(menuModel);
         return "redirect:/menu/";
     }
@@ -55,6 +54,7 @@ public class MenuController {
     @ResponseBody
     public MenuModel findOne(Integer id) {
         return menuService.findMenuById(id);
+
     }
 
     @GetMapping("/edit")
@@ -68,13 +68,17 @@ public class MenuController {
     public String saveEditMenu(@ModelAttribute MenuModel menuModel, int id) {
         menuService.editMenu(menuModel, id);
         return "redirect:/menu";
+
     }
 
+
+
     @GetMapping("/delete")
-    public MenuModel menuDeletePage(int id)
-    {
+    public MenuModel menuDeletePage ( int id) {
         return menuService.getOne(id);
     }
+
+
 
     @DeleteMapping("/delete/confirm")
     public String deleteConfirmed(@ModelAttribute MenuModel menuModel, int id) {
@@ -82,3 +86,4 @@ public class MenuController {
         return "redirect:/food-item";
     }
 }
+

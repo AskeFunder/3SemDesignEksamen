@@ -10,6 +10,7 @@
 
 <div class="container">
     <h1>Redigér Menu</h1>
+    <hr>
     <form th:action="@{/menu/edit/save/(id=${menuModel.id})}" th:method="put">
 
         <div class="form-group">
@@ -35,11 +36,15 @@
                 <label th:for="${{efood}}" th:text="${efood.name}">Cinema</label>
             </div>
         </div>
-
+<hr>
         <button type="submit" class="btn btn-success mb-2">Gem</button>
 
     </form>
 </div>
 
+
+    <script src="/webjars/jquery/3.2.1/jquery.js"></script>
+    <script src="/webjars/popper.js/1.12.9/dist/umd/popper.js"></script>
+    <script src="/webjars/bootstrap/4.0.0/js/bootstrap.js"></script>
 </body>
 </html>
