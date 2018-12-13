@@ -2,7 +2,9 @@ package com.example.demo.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "menu")
@@ -22,6 +24,8 @@ public class MenuModel {
             inverseJoinColumns = @JoinColumn(name = "fooditem_id"))
     private List<FoodItemModel> foodItems = new ArrayList<>();
 
+    @OneToMany (mappedBy = "menu")
+    Set<OrderModel> orderModels = new HashSet<>();
 
     public void addFoodItem(FoodItemModel foodItemModel) {
         foodItems.add(foodItemModel);

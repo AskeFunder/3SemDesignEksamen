@@ -25,7 +25,7 @@ public class OrderModel {
     private Date deliveryDate;
     private Date orderDate;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private MenuModel menu;
     // endregion
 
