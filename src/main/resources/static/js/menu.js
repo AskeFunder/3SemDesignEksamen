@@ -1,26 +1,39 @@
 $(document).ready(function () {
+
+    var id;
+
     $('.card').on('click',function(event) {
         event.preventDefault();
-        var href = $(this).attr('href');
-
-        $.get(href,function (menu,status) {
+        let href = $(this).attr('href');
 
 
-            //var $url + '/' + $id;
-            //$href.goto(url);
+        //function getMenu(){
+           /* $.ajax({
+                type : "GET",
+                url : window.location + ""
+            })*/
+            $.get(href,function (menu,status) {
 
-            $('.myModal #exampleModalLabel').text(menu.name);
-            $('.myModal #row_description').text(menu.description);
-            $('.myModal #row_price').text(menu.price);
+                $('.myModal #exampleModalLabel').text(menu.name);
+                $('.myModal #row_description').text(menu.description);
+                $('.myModal #row_price').text(menu.price);
 
-            $('.myModal #menuform').attr('action', `url/id=${menu.id}&quantity=${$('#guestcount').val()}`);
-        });
+                id = menu.id;
+                $('.myModal #menuform').attr('action', `url/id=${id}`);
+            });
 
-        $('.myModal #exampleModal').modal();
 
-    });
+            $('.myModal #exampleModal').modal();
 
-    ('#menuform').on('submit',function(event){alert('htfhgf');})
 
+        //}
+
+
+    })
+
+    function myFunction(){
+        $('.myModal #menuform').attr('action', `url/id=${id}quantity=${$('.myModal #guestcount').val()}`);
+    }
 });
+
 
