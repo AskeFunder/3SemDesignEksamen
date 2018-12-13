@@ -5,10 +5,7 @@ import com.example.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/order")
@@ -16,6 +13,13 @@ public class OrderController {
 
     @Autowired
     private OrderService orderService;
+
+    @GetMapping
+    public String listAll(Model model) {
+        model.addAttribute("orders", orderService.listAll());
+
+        return "order/index";
+    }
 
     @GetMapping("/create")
     public void createOrder(Model model) {
@@ -27,5 +31,16 @@ public class OrderController {
         orderService.createOrder(orderModel);
 
         return "redirect:/";
+    }
+
+    @GetMapping("/delete")
+    public OrderModel orderDeletePage (int id) {
+        return orderService.getOne(id);
+    }
+
+    @DeleteMapping("/delete/confirm")
+    public String deleteConfirmed(@ModelAttribute OrderModel orderModel, int id) {
+        orderService.delete(orderModel, id);
+        return "redirect:/order";
     }
 }

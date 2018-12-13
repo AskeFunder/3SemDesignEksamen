@@ -10,9 +10,6 @@
     <div class="container">
         <div class="row">
 
-            <h2 class="col-sm-8">Madvarer</h2>
-            <a href="food-item/create" class="col-sm-4 mb-2"><button class = "btn btn-success float-sm-right">Opret Madvare</button></a>
-
             <div class="col-sm">
                 <h2>Madvarer</h2>
             </div>
@@ -42,7 +39,7 @@
             <tr th:each="foodItem : ${foodItems}">
                 <td th:text="${foodItem.id}"></td>
                 <td th:text="${foodItem.name}"></td>
-                <td th:text="${foodItem.price} + ' DKK,-'"></td>
+                <td th:text="${foodItem.price} + ' DKK'"></td>
                 <td th:text="${foodItem.description}"></td>
                 <!-- -->
                 <td><a id="edit" th:href="@{../food-item/edit/(id=${foodItem.id})}" title="Rediger">
