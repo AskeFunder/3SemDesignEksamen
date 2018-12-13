@@ -55,6 +55,7 @@ public class MenuController {
     @ResponseBody
     public MenuModel findOne(Integer id) {
         return menuService.findMenuById(id);
+    }
 
     @GetMapping("/edit")
     public String edit(Model model, int id) {
@@ -79,6 +80,5 @@ public class MenuController {
     public String deleteConfirmed(@ModelAttribute MenuModel menuModel, int id) {
         menuService.delete(menuModel, id);
         return "redirect:/food-item";
-
     }
 }
