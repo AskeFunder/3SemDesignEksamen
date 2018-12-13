@@ -18,7 +18,7 @@ public class FoodItemController {
     public String listAll(Model model) {
         model.addAttribute("foodItems", foodItemService.listAll());
 
-        return "food-item/food-items";
+        return "food-item/index";
     }
 
     @GetMapping("/create")
@@ -56,5 +56,4 @@ public class FoodItemController {
         foodItemService.delete(foodItem, id);
         return "redirect:/food-item";
     }
-
 }
