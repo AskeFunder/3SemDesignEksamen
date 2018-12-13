@@ -38,7 +38,7 @@
                     <tr th:each="menu : ${menus}">
                         <td th:text="${menu.name}"></td>
                         <td th:text="${menu.description}"></td>
-                        <td th:text="${menu.price} + ' DKK,-'"></td>
+                        <td th:text="${menu.price} + ' DKK'"></td>
                         <td><a th:href="@{../menu/findOne/(id=${menu.id})}"class="btn btn-info eBtn">Vis Mere</a></td>
                         <td><a id="edit" th:href="@{../menu/edit/(id=${menu.id})}" title="Edit"><button class="btn btn-primary">Redigér</button><span  data-feather="edit"></span></a></td>
                         <td><a id="delete"  th:href="@{../menu/delete/(id=${menu.id})}" class="btn btn-danger" title="Slet">Slet</a></td>
