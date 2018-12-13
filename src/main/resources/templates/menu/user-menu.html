@@ -11,12 +11,14 @@
 <div class="container">
     <div class="row card-group">
         <div class="col-sm-12 col-md-6 col-lg-4 my-4" th:each="menu : ${menus}">
-            <div style="width: 18rem;" class="card text-dark">
+            <div style="border: 2px solid silver; width: 18rem; filter: drop-shadow(5px 5px 5px black);" class="card text-dark">
                 <img class="card-img-top" th:src="@{/img/food.jpg}">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${menu.name}"></h5>
                     <p class="card-text" th:text="${menu.description}"></p>
+<!--
                     <a th:href="@{../menu/findOne/(id=${menu.id})}" class="btn eBtn btn-primary">Go somewhere</a>
+-->
                 </div>
             </div>
         </div>
