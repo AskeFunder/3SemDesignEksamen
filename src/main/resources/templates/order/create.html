@@ -10,33 +10,41 @@
 
 <div class="container">
     <h1>Opret Bestilling</h1>
-    <form th:action="@{/order/save}" th:method="post">
-
-
+    <form th:action="@{/order/save}" th:method="post" th:object="${orderModel}">
             <hr>
             <div class="form-group">
+                <label for="customerName">Kunde navn</label>
+                <input th:field="${orderModel.customerName}" type="text" class="form-control" id="customerName" value="">
+            </div>
+
+            <div class="form-group">
                 <label for="customerEmail">Kunde email</label>
-                <input type="text" class="form-control" id="customerEmail" value="">
+                <input th:field="${orderModel.customerEmail}" type="text" class="form-control" id="customerEmail" value="">
             </div>
 
             <div class="form-group" >
                 <label for="customerAddress" >Kunde addresse</label>
-                <input type="text" class="form-control" id="customerAddress" value="">
+                <input th:field="${orderModel.customerAddress}" type="text" class="form-control" id="customerAddress" value="">
             </div>
+
+        <div class="form-group" >
+            <label for="customerAddress" >Kunde mobil/fastnet nummer</label>
+            <input th:field="${orderModel.customerPhoneNumber}" type="text" class="form-control" id="customerAddress" value="">
+        </div>
 
             <div class="form-group" >
                 <label for="orderDate" >Order date</label>
-                <input type="text" class="form-control" id="orderDate" value="">
+                <input th:field="${orderModel.orderDate}"type="text" class="form-control" id="orderDate" value="">
             </div>
 
             <div class="form-group" >
                 <label for="deliveryDate" >Delivery date</label>
-                <input type="text" class="form-control" id="deliveryDate" value="">
+                <input th:field="${orderModel.deliveryDate}" type="text" class="form-control" id="deliveryDate" value="">
             </div>
 
             <div class="form-group" >
                 <label for="customerComment" >Kunde kommentar</label>
-                <input type="text" class="form-control" id="customerComment" value="">
+                <input th:field="${orderModel.customerComment}" type="text" class="form-control" id="customerComment" value="">
             </div>
 
 
@@ -46,17 +54,17 @@
 
                 <div class="form-group">
                     <label for="chosenmenu">Valgte menu</label>
-                    <input id="chosenmenu" type="text" th:value="${menu.name}" class="form-control" readonly>
+                    <input  id="chosenmenu" type="text" th:value="${menu.name}" class="form-control" readonly>
                 </div>
 
                 <div class="form-group">
                     <label for="guestCount">Antal kuverter</label>
-                    <input type="text" th:value="${quantity}" class="form-control" id="guestCount" readonly>
+                    <input type="text" th:value="${guestCount}"  class="form-control" id="guestCount" readonly>
                 </div>
 
                 <div class="form-group">
                     <label for="totalPrice">Total pris</label>
-                    <input type="text" th:value="${totalprice}" class="form-control" id="totalPrice" readonly>
+                    <input type="text" th:value="${priceTotal}" th:id="${priceTotal}" th:name="${priceTotal}" class="form-control" id="totalPrice" readonly>
 
                 </div>
 

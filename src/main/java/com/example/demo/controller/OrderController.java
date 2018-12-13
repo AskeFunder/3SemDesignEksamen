@@ -32,16 +32,18 @@ public class OrderController {
 
     @GetMapping("/create")
     public void createOrder(Model model, @RequestParam("id") int id, @RequestParam("quantity") int quantity) {
-        model.addAttribute("menu", menuRepository.getOne(id));
-        model.addAttribute("totalprice", menuRepository.getOne(id).getPrice() * quantity);
-        model.addAttribute("quantity", quantity);
         model.addAttribute("orderModel", new OrderModel());
+        model.addAttribute("menuModel",new MenuModel());
+        model.addAttribute("menu", menuRepository.getOne(id));
+        model.addAttribute("priceTotal", menuRepository.getOne(id).getPrice() * quantity);
+        model.addAttribute("guestCount", quantity);
+
     }
+
 
     @PostMapping("/save")
     public String createOrder(@ModelAttribute OrderModel orderModel) {
         orderService.createOrder(orderModel);
-
         return "redirect:/";
     }
 
