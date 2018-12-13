@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('.card .eBtn').on('click',function(event) {
+    $('.card').on('click',function(event) {
         event.preventDefault();
         var href = $(this).attr('href');
 

@@ -54,31 +54,36 @@ public class MenuController {
     @ResponseBody
     public MenuModel findOne(Integer id) {
         return menuService.findMenuById(id);
+
     }
-        @GetMapping("/edit")
-        public String edit (Model model,int id){
-            model.addAttribute("menuModel", menuService.getOne(id));
-            model.addAttribute("foodItems", foodItemService.listAll());
-            return "menu/edit";
-        }
 
-        @PutMapping("/edit/save/")
-        public String saveEditMenu (@ModelAttribute MenuModel menuModel,int id){
-            menuService.editMenu(menuModel, id);
-            return "redirect:/menu";
-        }
-
-        @GetMapping("/delete")
-        public MenuModel menuDeletePage ( int id)
-        {
-            return menuService.getOne(id);
-        }
-
-        @DeleteMapping("/delete/confirm")
-        public String deleteConfirmed (@ModelAttribute MenuModel menuModel,int id){
-            menuService.delete(menuModel, id);
-            return "redirect:/food-item";
-
-        }
+    @GetMapping("/edit")
+    public String edit(Model model, int id) {
+        model.addAttribute("menuModel", menuService.getOne(id));
+        model.addAttribute("foodItems", foodItemService.listAll());
+        return "menu/edit";
     }
+
+    @PutMapping("/edit/save/")
+    public String saveEditMenu(@ModelAttribute MenuModel menuModel, int id) {
+        menuService.editMenu(menuModel, id);
+        return "redirect:/menu";
+
+    }
+
+
+
+    @GetMapping("/delete")
+    public MenuModel menuDeletePage ( int id) {
+        return menuService.getOne(id);
+    }
+
+
+
+    @DeleteMapping("/delete/confirm")
+    public String deleteConfirmed(@ModelAttribute MenuModel menuModel, int id) {
+        menuService.delete(menuModel, id);
+        return "redirect:/menu";
+    }
+}
 
