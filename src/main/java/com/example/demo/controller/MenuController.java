@@ -83,7 +83,7 @@ public class MenuController {
     @DeleteMapping("/delete/confirm")
     public String deleteConfirmed(@ModelAttribute MenuModel menuModel, int id) {
         menuService.delete(menuModel, id);
-        return "redirect:/food-item";
+        return "redirect:/menu";
     }
 }
 
