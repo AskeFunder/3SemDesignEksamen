@@ -4,7 +4,6 @@ import com.example.demo.model.OrderModel;
 import com.example.demo.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -19,5 +18,14 @@ public class OrderService {
 
     public List<OrderModel> listAll() {
         return orderRepository.findAll();
+    }
+
+    public OrderModel getOne(int id) {
+        return orderRepository.getOne(id);
+    }
+
+    public void delete(OrderModel orderModel, int id) {
+        orderModel.setId(id);
+        orderRepository.delete(orderModel);
     }
 }
