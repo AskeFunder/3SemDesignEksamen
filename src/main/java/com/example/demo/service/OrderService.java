@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.model.MenuModel;
 import com.example.demo.model.OrderModel;
 import com.example.demo.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,11 @@ public class OrderService {
 
     public OrderModel getOne(int id) {
         return orderRepository.getOne(id);
+    }
+
+    public void editOrder(OrderModel orderModel, int id){
+        orderModel.setId(id);
+        orderRepository.save(orderModel);
     }
 
     public void delete(OrderModel orderModel, int id) {

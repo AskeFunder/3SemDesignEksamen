@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -9,17 +9,60 @@
 <body>
     <div th:include="fragment/style :: nav_navbar"></div>
 <div class="container">
-    <div class="row card-group">
-        <div class="col-sm-12 col-md-6 col-lg-4 my-4" th:each="menu : ${menus}">
-            <div th:href="@{../menu/findOne/(id=${menu.id})}" style="border: 2px solid silver; width: 18rem; filter: drop-shadow(5px 5px 5px black);" class="card text-dark">
-                <img class="card-img-top" th:src="@{/img/food.jpg}">
-                <div class="card-body">
+    <header class="rounded">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <!-- Slide One - Set the background image for this slide in the line below -->
+                <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/RCAhiGJsUUE/1920x1080')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="display-4">First Slide</h3>
+                        <p class="lead">This is a description for the first slide.</p>
+                    </div>
+                </div>
+                <!-- Slide Two - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1920x1080')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="display-4">Second Slide</h3>
+                        <p class="lead">This is a description for the second slide.</p>
+                    </div>
+                </div>
+                <!-- Slide Three - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('https://source.unsplash.com/O7fzqFEfLlo/1920x1080')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="display-4">Third Slide</h3>
+                        <p class="lead">This is a description for the third slide.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="row text-center mt-5 mb-5">
+        <div class="col-lg-4 col-md-6 mb-4" th:each="menu : ${menus}">
+            <div class="card border border-dark" style="box-shadow: black; filter: drop-shadow(3px 3px 3px black)">
+            <div th:href="@{../menu/findOne/(id=${menu.id})}" class="card text-dark"> <!-- style="border: 2px solid silver; width: 18rem; filter: drop-shadow(5px 5px 5px black);" -->
+                <img class="card-img-top " th:src="@{/img/food.jpg}">
+                <div class="card-body ">
                     <h5 class="card-title" th:text="${menu.name}"></h5>
                     <p class="card-text" th:text="${menu.description}"></p>
 <!--
                     <a th:href="@{../menu/findOne/(id=${menu.id})}" class="btn eBtn btn-primary">Go somewhere</a>
 -->
                 </div>
+            </div>
             </div>
         </div>
     </div>
@@ -68,11 +111,21 @@
 </div>
 
 
-
     <script src="/webjars/jquery/3.2.1/jquery.js"></script>
     <script src="/webjars/popper.js/1.12.9/dist/umd/popper.js"></script>
     <script src="/webjars/bootstrap/4.0.0/js/bootstrap.js"></script>
     <script type="text/javascript" th:src="@{/js/menu.js}" src="../../static/js/menu.js"></script>
 
 </body>
+        <style>
+            .carousel-item {
+                height: 55vh;
+                min-height: 350px;
+                background: no-repeat center center scroll;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+        </style>
 </html>
