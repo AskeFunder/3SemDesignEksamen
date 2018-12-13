@@ -48,13 +48,13 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <form onsubmit="myFunction()" id="menuform" th:action="@{order/(id=${menus})}" method="post">
+                                    <!--<form onsubmit="myFunction()" id="menuform" method="post">-->
 
                                         <label for="guestcount">Antal ønskede kuverter</label>
                                         <input id="guestcount" type="text" name="guestcount">
-                                        <input type="submit" value="Submit">
+                                        <button id="submitorder">Submit</button>
 
-                                    </form>
+                                    <!--</form>-->
                                 </div>
 
                             </div>

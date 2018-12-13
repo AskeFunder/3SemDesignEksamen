@@ -12,6 +12,7 @@
     <h1>Opret Bestilling</h1>
     <form th:action="@{/order/create}" th:method="post">
 
+
         <div class="form-group">
             <label for="customerName">Navn</label>
             <input type="text" class="form-control" id="customerName" value=""
@@ -35,6 +36,8 @@
             <input type="text" class="form-control" id="customerPhoneNumber" value=""
                    th:field="${orderModel.customerPhoneNumber}">
         </div>
+
+        
 
         <button type="submit" class="btn btn-success">Opret</button>
 

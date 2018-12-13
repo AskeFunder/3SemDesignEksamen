@@ -19,7 +19,7 @@ $(document).ready(function () {
                 $('.myModal #row_price').text(menu.price);
 
                 id = menu.id;
-                $('.myModal #menuform').attr('action', `url/id=${id}`);
+
             });
 
 
@@ -31,9 +31,10 @@ $(document).ready(function () {
 
     })
 
-    function myFunction(){
-        $('.myModal #menuform').attr('action', `url/id=${id}quantity=${$('.myModal #guestcount').val()}`);
-    }
+    $('#submitorder').on('click', function(event){
+        window.location = '../order/create/?id=' + id + '&quantity=' + $('#guestcount').val();
+        //$('.myModal #menuform').attr('action', `order/?id=${id}&quantity=${$('#guestcount').val()}`);
+    })
 });
 
 
