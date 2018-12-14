@@ -22,10 +22,8 @@ public class FoodItemController {
     }
 
     @GetMapping("/create")
-    public String create(Model model) {
+    public void create(Model model) {
         model.addAttribute("foodItemModel", new FoodItemModel());
-
-        return "food-item/create";
     }
 
     @PostMapping("/save")
@@ -48,12 +46,14 @@ public class FoodItemController {
     @PutMapping("/edit/save/")
     public String saveEditCourse(@ModelAttribute FoodItemModel foodItem, int id) {
         foodItemService.editFoodItem(foodItem, id);
+
         return "redirect:/food-item";
     }
 
     @DeleteMapping("/delete/confirm")
     public String deleteConfirmed(@ModelAttribute FoodItemModel foodItem, int id) {
         foodItemService.delete(foodItem, id);
+
         return "redirect:/food-item";
     }
 }

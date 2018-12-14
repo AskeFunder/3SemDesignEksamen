@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>List all Menu</title>
-    <link rel="stylesheet" type="text/css" th:src="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" />
-
+    <link rel="stylesheet" type="text/css" th:src="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}"
+          href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" />
 </head>
 <body>
-    <div th:include="fragment/style :: nav_navbar"></div>
+    <div th:include="fragment/style :: nav-navbar"></div>
     <div class="container">
         <div class="row">
             <div class="col-sm">
@@ -15,8 +15,8 @@
             </div>
             <div>
                 <div class="col-sm">
-                    <a href="menu/create">
-                        <button href="menu/create" class = "btn btn-success m-1">Opret Menu</button>
+                    <a href="/menu/create">
+                        <button href="/menu/create" class = "btn btn-success m-1">Opret Menu</button>
                     </a>
                 </div>
             </div>
@@ -31,7 +31,6 @@
                         <th></th>
                         <th></th>
                         <th></th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -39,14 +38,15 @@
                         <td th:text="${menu.name}"></td>
                         <td th:text="${menu.description}"></td>
                         <td th:text="${menu.price} + ' DKK'"></td>
-                        <td><a th:href="@{../menu/findOne/(id=${menu.id})}"class="btn btn-info eBtn">Vis Mere</a></td>
-                        <td><a id="edit" th:href="@{../menu/edit/(id=${menu.id})}" title="Edit"><button class="btn btn-primary">Redigér</button><span  data-feather="edit"></span></a></td>
-                        <td><a id="delete"  th:href="@{../menu/delete/(id=${menu.id})}" class="btn btn-danger" title="Slet">Slet</a></td>
+                        <td><a th:href="@{../menu/find-one/(id=${menu.id})}"class="btn btn-info eBtn">Vis Mere</a></td>
+                        <td><a id="edit" th:href="@{../menu/edit/(id=${menu.id})}" title="Edit">
+                            <button class="btn btn-primary">Redigér</button><span data-feather="edit"></span></a></td>
+                        <td><a id="delete"  th:href="@{../menu/delete/(id=${menu.id})}" class="btn btn-danger"
+                               title="Slet">Slet</a></td>
                     </tr>
                 </tbody>
             </table>
             <hr/>
-
             <ul class="nav nav-pills">
                 <li class="nav-item" th:each="p : ${#numbers.sequence(0,menus.getTotalPages()-1)}">
                     <a th:href="@{../courses/(page=${p})}" th:text="${p}" class="nav-link"
@@ -56,7 +56,6 @@
         </div>
         <hr>
     </div>
-
     <script src="/webjars/jquery/3.2.1/jquery.js"></script>
     <script src="/webjars/popper.js/1.12.9/dist/umd/popper.js"></script>
     <script src="/webjars/bootstrap/4.0.0/js/bootstrap.js"></script>
