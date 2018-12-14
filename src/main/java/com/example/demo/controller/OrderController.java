@@ -42,7 +42,7 @@ public class OrderController {
     public String createOrder(@ModelAttribute OrderModel orderModel) {
         orderService.createOrder(orderModel);
 
-        return "redirect:/";
+        return "index";
     }
 
     @GetMapping("/edit")

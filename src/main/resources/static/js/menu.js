@@ -2,36 +2,27 @@ $(document).ready(function () {
 
     var id;
 
+
     $('.card').on('click',function(event) {
         event.preventDefault();
-        let href = $(this).attr('href');
+        var href = $(this).attr('href');
 
+        $('#someID')
 
-        //function getMenu(){
-           /* $.ajax({
-                type : "GET",
-                url : window.location + ""
-            })*/
-            $.get(href,function (menu,status) {
+        $.get(href,function (menu) {
 
-                $('.myModal #exampleModalLabel').text(menu.name);
-                $('.myModal #row_description').text(menu.description);
-                $('.myModal #row_price').text(menu.price);
+            debugger
+            $('.myModal #exampleModalLabel').text(menu.name);
+            $('.myModal #row_description').text(menu.description);
+            $('.myModal #row_price').text(menu.price);
 
-                id = menu.id;
-
-            });
-
-
-            $('.myModal #exampleModal').modal();
-
-
-        //}
-
-
+            id = menu.id;
+        });
+        $('.myModal #exampleModal').modal();
     })
 
     $('#submitorder').on('click', function(event){
+        debugger
         window.location = '../order/create/?id=' + id + '&quantity=' + $('#guestcount').val();
         //$('.myModal #menuform').attr('action', `order/?id=${id}&quantity=${$('#guestcount').val()}`);
     })
