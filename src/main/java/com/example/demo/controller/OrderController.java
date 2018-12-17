@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.model.MenuModel;
 import com.example.demo.model.OrderModel;
 import com.example.demo.repository.MenuRepository;
+import com.example.demo.service.MenuService;
 import com.example.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +18,7 @@ public class OrderController {
     private OrderService orderService;
 
     @Autowired
-    private MenuRepository menuRepository;
+    private MenuService menuService;
 
     @GetMapping
     public String listAll(Model model) {
@@ -29,15 +30,16 @@ public class OrderController {
     @GetMapping("/create")
     public void createOrder(Model model, @RequestParam("id") int id, @RequestParam("quantity") int quantity) {
         model.addAttribute("orderModel", new OrderModel());
-        model.addAttribute("menuModel", menuRepository.getOne(id));
-        model.addAttribute("priceTotal", menuRepository.getOne(id).getPrice() * quantity);
+        model.addAttribute("menuModel", menuService.getOne(id));
+        model.addAttribute("priceTotal", menuService.getOne(id).getPrice() * quantity);
         model.addAttribute("guestCount", quantity);
     }
 
     @PostMapping("/save")
-    public String createOrder(@ModelAttribute OrderModel orderModel) {
-        orderService.createOrder(orderModel);
-
+    public String createOrder(@ModelAttribute OrderModel orderModel, @RequestParam("menuID") int id) {
+        MenuModel menuModel = menuService.getOne(id);
+        orderService.createOrder(orderModel, menuModel);
+        System.out.println("menu: id=" + orderModel.getMenu().getId() + ", name=" + orderModel.getMenu().getName());
         return "redirect:/";
     }
 

@@ -9,7 +9,7 @@
 <div th:include="fragment/style :: nav-navbar"></div>
 <div class="container">
     <h1>Opret Bestilling</h1>
-    <form th:action="@{/order/save}" th:method="post" th:object="${orderModel}">
+    <form th:action="@{/order/save/(menuID=${menuModel.id})}" th:method="post" th:object="${orderModel}">
             <hr>
             <div class="form-group">
                 <label for="customer-name">Fulde navn</label>
