@@ -2,6 +2,9 @@ $(document).ready(function () {
 
     var id;
 
+    $('.card').on('hover', function(event){
+        this.
+    })
 
     $('.card').on('click',function(event) {
         event.preventDefault();
