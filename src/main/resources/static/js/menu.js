@@ -10,7 +10,7 @@ $(document).ready(function () {
         event.preventDefault();
         var href = $(this).attr('href');
 
-        $('#someID')
+
 
         $.get(href,function (menu) {
 
@@ -28,6 +28,22 @@ $(document).ready(function () {
         debugger
         window.location = '../order/create/?id=' + id + '&quantity=' + $('#guestcount').val();
         //$('.myModal #menuform').attr('action', `order/?id=${id}&quantity=${$('#guestcount').val()}`);
+
+            $.get(href,function (menu,status) {
+
+                $('.myModal #example-modal-label').text(menu.name);
+                $('.myModal #row-description').text(menu.description);
+                $('.myModal #row-price').text(menu.price);
+
+                id = menu.id;
+
+            });
+
+            $('.myModal #example-modal').modal();
+    })
+
+    $('#submit-order').on('click', function(event){
+        window.location = '../order/create/?id=' + id + '&quantity=' + $('#guest-count').val();
     })
 });
 

@@ -1,7 +1,6 @@
 package com.example.demo.model;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "customer_order")

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table (name = "fooditem")
+@Table (name = "food_item")
 public class FoodItemModel {
 
     @Id
@@ -18,7 +18,7 @@ public class FoodItemModel {
     private String description;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "menu_fooditem", joinColumns = @JoinColumn(name = "fooditem_id"),
+    @JoinTable(name = "menu_food_item", joinColumns = @JoinColumn(name = "food_item_id"),
             inverseJoinColumns = @JoinColumn(name = "menu_id"))
     private List<MenuModel> menus = new ArrayList<>();
 

@@ -2,19 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>List all Menu</title>
-    <link rel="stylesheet" type="text/css" th:src="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" />
-
+    <title>Mormor's menuer</title>
+    <link rel="stylesheet" type="text/css" th:src="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}"
+          href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" />
 </head>
 <body>
-    <div th:include="fragment/style :: nav_navbar"></div>
+    <div th:include="fragment/style :: nav-navbar"></div>
 <div class="container">
     <header class="rounded">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div id="carousel-example-indicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carousel-example-indicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-indicators" data-slide-to="1"></li>
+                <li data-target="#carousel-example-indicators" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
                 <!-- Slide One - Set the background image for this slide in the line below -->
@@ -39,67 +39,54 @@
                     </div>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carousel-example-indicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carousel-example-indicators" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
         </div>
     </header>
-
     <div class="row text-center mt-5 mb-5">
         <div class="col-lg-4 col-md-6 mb-4" th:each="menu : ${menus}">
             <div class="card border border-dark" style="box-shadow: black; filter: drop-shadow(3px 3px 3px black)">
-            <div th:href="@{../menu/findOneJson/(id=${menu.id})}" class="card text-dark"> <!-- style="border: 2px solid silver; width: 18rem; filter: drop-shadow(5px 5px 5px black);" -->
+            <div th:href="@{../menu/find-one-json/(id=${menu.id})}" class="card text-dark">
                 <img class="card-img-top " th:src="@{/img/food.jpg}">
                 <div class="card-body ">
                     <h5 class="card-title" th:text="${menu.name}"></h5>
                     <p class="card-text" th:text="${menu.description}"></p>
-<!--
-                    <a th:href="@{../menu/findOne/(id=${menu.id})}" class="btn eBtn btn-primary">Go somewhere</a>
--->
                 </div>
             </div>
             </div>
         </div>
     </div>
-
     <div class="myModal">
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="example-modal" tabindex="-1" role="dialog" aria-labelledby="example-modal-label" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <h5 class="modal-title" id="example-modal-label"></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-
                     <div class="modal-body">
                         <div class="container-fluid">
                             <div class="row border-bottom" >
-
                                 <div class="container">
-                                    <label for="row_description" class="col-form-label font-weight-bold">Beskrivelse</label>
-                                    <p id="row_description"></p>
+                                    <label for="row-description" class="col-form-label font-weight-bold">Beskrivelse</label>
+                                    <p id="row-description"></p>
                                     <br>
-                                    <label for="row_price" class="col-form-label font-weight-bold">Pris pr. kuvert</label>
-                                    <p id="row_price"></p>
+                                    <label for="row-price" class="col-form-label font-weight-bold">Pris pr. kuvert</label>
+                                    <p id="row-price"></p>
                                 </div>
-
                                 <div class="modal-footer">
-                                    <!--<form onsubmit="myFunction()" id="menuform" method="post">-->
-
-                                        <label for="guestcount">Antal ønskede kuverter</label>
-                                        <input id="guestcount" type="text" name="guestcount">
-                                        <button id="submitorder">Submit</button>
-
-                                    <!--</form>-->
+                                        <label for="guest-count">Antal ønskede kuverter</label>
+                                        <input id="guest-count" type="number" name="guest-count">
+                                        <button id="submit-order">Submit</button>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -107,15 +94,11 @@
             </div>
         </div>
     </div>
-
 </div>
-
-
     <script src="/webjars/jquery/3.2.1/jquery.js"></script>
     <script src="/webjars/popper.js/1.12.9/dist/umd/popper.js"></script>
     <script src="/webjars/bootstrap/4.0.0/js/bootstrap.js"></script>
     <script type="text/javascript" th:src="@{/js/menu.js}" src="../../static/js/menu.js"></script>
-
 </body>
         <style>
             .carousel-item {

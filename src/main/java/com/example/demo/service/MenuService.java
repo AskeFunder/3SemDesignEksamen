@@ -17,12 +17,10 @@ public class MenuService {
         return menuRepository.findAll(PageRequest.of(page,10));
     }
 
-    public void save(MenuModel menuModel)
-    {
+    public void save(MenuModel menuModel) {
         menuRepository.save(menuModel);
     }
 
-    //2 identiske metoder?
     public MenuModel findMenuById(Integer id) {
         return menuRepository.findById(id).orElse(null);
     }
@@ -40,5 +38,4 @@ public class MenuService {
         menuModel.setId(id);
         menuRepository.delete(menuModel);
     }
-
 }
