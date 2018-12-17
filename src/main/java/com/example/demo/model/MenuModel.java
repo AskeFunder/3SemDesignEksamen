@@ -1,7 +1,6 @@
 package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -23,16 +22,12 @@ public class MenuModel {
 
     @JsonIgnore
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "menu_fooditem", joinColumns = @JoinColumn(name = "menu_id"),
-            inverseJoinColumns = @JoinColumn(name = "fooditem_id"))
+    @JoinTable(name = "menu_food_item", joinColumns = @JoinColumn(name = "menu_id"),
+            inverseJoinColumns = @JoinColumn(name = "food_item_id"))
     private List<FoodItemModel> foodItems = new ArrayList<>();
 
     @OneToMany (mappedBy = "menu")
     Set<OrderModel> orderModels = new HashSet<>();
-
-    //@OneToMany (mappedBy = "menu")
-   // Set<OrderModel> orderModels = new HashSet<>();
-
 
     public void addFoodItem(FoodItemModel foodItemModel) {
         foodItems.add(foodItemModel);

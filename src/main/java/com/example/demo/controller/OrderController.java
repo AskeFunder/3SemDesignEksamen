@@ -17,7 +17,7 @@ public class OrderController {
     private OrderService orderService;
 
     @Autowired
-    MenuRepository menuRepository;
+    private MenuRepository menuRepository;
 
     @GetMapping
     public String listAll(Model model) {
@@ -26,20 +26,15 @@ public class OrderController {
         return "order/index";
     }
 
-    /*@GetMapping("/order/order/")
-    public String menuOrder(@RequestParam("id") int id, @RequestParam("quantity") int quantity)
-    {
-        return "hello"
-    }*/
-
     @GetMapping("/create")
-    public void createOrder(Model model, @RequestParam("id") Integer id, @RequestParam("quantity") Integer quantity) {
-        model.addAttribute("menu", menuRepository.getOne(id));
-        model.addAttribute("quantity", quantity);
+    public void createOrder(Model model, @RequestParam("id") int id, @RequestParam("quantity") int quantity) {
         model.addAttribute("orderModel", new OrderModel());
+        model.addAttribute("menuModel", menuRepository.getOne(id));
+        model.addAttribute("priceTotal", menuRepository.getOne(id).getPrice() * quantity);
+        model.addAttribute("guestCount", quantity);
     }
 
-    @PostMapping("/create")
+    @PostMapping("/save")
     public String createOrder(@ModelAttribute OrderModel orderModel) {
         orderService.createOrder(orderModel);
 
@@ -47,16 +42,15 @@ public class OrderController {
     }
 
     @GetMapping("/edit")
-    public String edit(Model model, int id) {
-        model.addAttribute("order", orderService.getOne(id));
-        return "order/edit";
+    public void edit(Model model, int id) {
+        model.addAttribute("orderModel", orderService.getOne(id));
     }
 
     @PutMapping("/edit/save/")
     public String saveEditOrder(@ModelAttribute OrderModel orderModel, int id) {
         orderService.editOrder(orderModel, id);
-        return "redirect:/order";
 
+        return "redirect:/order";
     }
 
     @GetMapping("/delete")
@@ -67,6 +61,7 @@ public class OrderController {
     @DeleteMapping("/delete/confirm")
     public String deleteConfirmed(@ModelAttribute OrderModel orderModel, int id) {
         orderService.delete(orderModel, id);
+
         return "redirect:/order";
     }
 }
