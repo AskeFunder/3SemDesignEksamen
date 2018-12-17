@@ -40,7 +40,8 @@ public class OrderController {
         MenuModel menuModel = menuService.getOne(id);
         orderService.createOrder(orderModel, menuModel);
         System.out.println("menu: id=" + orderModel.getMenu().getId() + ", name=" + orderModel.getMenu().getName());
-        return "redirect:/";
+
+        return "index";
     }
 
     @GetMapping("/edit")

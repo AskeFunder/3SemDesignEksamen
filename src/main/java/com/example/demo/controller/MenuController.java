@@ -56,8 +56,7 @@ public class MenuController {
     @GetMapping("/find-one")
     public String findMenuAndFood(Model model, int id) {
         model.addAttribute("menuModel", menuService.getOne(id));
-
-        return "menu/one";
+        return "menu/findOne";
     }
 
     @GetMapping("/edit")

@@ -23,5 +23,3 @@ $(document).ready(function () {
         window.location = '../order/create/?id=' + id + '&quantity=' + $('#guest-count').val();
     })
 });
-
-
