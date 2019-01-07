@@ -7,6 +7,8 @@
           href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css"/></head>
 <body>
 <div th:include="fragment/style :: nav-navbar"></div>
+
+
 <div class="container">
     <h1>Redigér Madvare</h1>
     <form th:action="@{/food-item/edit/save/(id=${foodItemModel.id})}" th:method="put">
@@ -28,6 +30,9 @@
         <button type="submit" class="btn btn-success mb-2">Gem</button>
     </form>
 </div>
+
+
+
 <script src="/webjars/jquery/3.2.1/jquery.js"></script>
 <script src="/webjars/popper.js/1.12.9/dist/umd/popper.js"></script>
 <script src="/webjars/bootstrap/4.0.0/js/bootstrap.js"></script>
